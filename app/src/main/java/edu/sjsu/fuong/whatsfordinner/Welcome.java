@@ -1,5 +1,6 @@
 package edu.sjsu.fuong.whatsfordinner;
 
+import android.content.Intent;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -29,20 +30,7 @@ public class Welcome extends AppCompatActivity {
         whatsfordinner.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                layoutInflater = (LayoutInflater) getApplicationContext().getSystemService(LAYOUT_INFLATER_SERVICE);
-                ViewGroup container = (ViewGroup) layoutInflater.inflate(R.layout.popuplay, null);
-
-                popupWindow = new PopupWindow(container, 300, 300, true);
-                popupWindow.showAtLocation(welcomeLay, Gravity.NO_GRAVITY, 300, 300);
-
-                container.setOnTouchListener(new View.OnTouchListener() {
-
-                    @Override
-                    public boolean onTouch(View view, MotionEvent motionEvent) {
-                        popupWindow.dismiss();
-                        return true;
-                    }
-                });
+                startActivity(new Intent(Welcome.this, PopupAct.class));
             }
         });
     }
