@@ -26,51 +26,69 @@
         android:id="@+id/mealButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
-        android:text="Button"
+        android:background="@android:color/transparent"
+        android:drawableTop="@drawable/meal"
+        android:text="Meal"
+        app:layout_constraintBottom_toTopOf="@+id/groceriesButton"
+        app:layout_constraintEnd_toStartOf="@+id/recipesButton"
+        app:layout_constraintHorizontal_bias="0.068"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/whatsfordinner" />
+        app:layout_constraintTop_toBottomOf="@+id/whatsfordinner"
+        app:layout_constraintVertical_bias="0.127" />
 
     <Button
         android:id="@+id/recipesButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="16dp"
         android:layout_marginStart="176dp"
         android:layout_marginTop="32dp"
-        android:text="Button"
+        android:background="@android:color/transparent"
+        android:drawableTop="@drawable/book"
+        android:text="Recipes"
+        app:layout_constraintBottom_toTopOf="@+id/newDishButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/button"
-        app:layout_constraintTop_toBottomOf="@+id/whatsfordinner" />
+        app:layout_constraintTop_toBottomOf="@+id/whatsfordinner"
+        app:layout_constraintVertical_bias="0.272" />
 
     <Button
         android:id="@+id/groceriesButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="36dp"
-        android:text="Button"
+        android:background="@android:color/transparent"
+        android:drawableTop="@drawable/cart"
+        android:text="Groceries"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintEnd_toStartOf="@+id/newDishButton"
+        app:layout_constraintHorizontal_bias="0.068"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/newDishButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="16dp"
         android:layout_marginStart="176dp"
         android:layout_marginTop="8dp"
-        android:text="Button"
+        android:background="@android:color/transparent"
+        android:drawableTop="@drawable/plus"
+        android:text="New Dish"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/button3"
         app:layout_constraintTop_toBottomOf="@+id/button2"
         app:layout_constraintVertical_bias="0.297" />
+
 </android.support.constraint.ConstraintLayout>

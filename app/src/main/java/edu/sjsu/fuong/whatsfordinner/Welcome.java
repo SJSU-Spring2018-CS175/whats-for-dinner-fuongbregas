@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
 
@@ -19,6 +20,12 @@ public class Welcome extends AppCompatActivity {
     private LayoutInflater layoutInflater;
     private ConstraintLayout welcomeLay;
 
+    // Button list
+    private Button mealButton;
+    private Button receipeButton;
+    private Button grocButton;
+    private Button newDishButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,11 +33,23 @@ public class Welcome extends AppCompatActivity {
 
         whatsfordinner = (ImageView) findViewById(R.id.whatsfordinner);
         welcomeLay = (ConstraintLayout) findViewById(R.id.welcomeLay);
+        mealButton = (Button) findViewById(R.id.mealButton);
+        receipeButton = (Button) findViewById(R.id.recipesButton);
+        grocButton = (Button) findViewById(R.id.groceriesButton);
+        newDishButton = (Button) findViewById(R.id.newDishButton);
 
         whatsfordinner.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(Welcome.this, PopupAct.class));
+            }
+        });
+
+        mealButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent mealIntent = new Intent(Welcome.this, MealActivity.class);
+                startActivity(mealIntent);
             }
         });
     }
