@@ -22,6 +22,6 @@ public class PopupAct extends Activity {
         int widthDM = dm.widthPixels;
         int heightDM = dm.heightPixels;
 
-        getWindow().setLayout((int)(widthDM*.8),(int)(heightDM*.6));
+        getWindow().setLayout((int)(widthDM*.8),(int)(heightDM*.25));
     }
 }
