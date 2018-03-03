@@ -52,5 +52,13 @@ public class Welcome extends AppCompatActivity {
                 startActivity(mealIntent);
             }
         });
+
+        newDishButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent newDish = new Intent(Welcome.this, NewDishActivity.class);
+                startActivity(newDish);
+            }
+        });
     }
 }
