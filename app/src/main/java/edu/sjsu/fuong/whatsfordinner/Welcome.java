@@ -13,6 +13,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
 
+import java.util.ArrayList;
+
 public class Welcome extends AppCompatActivity {
 
     private ImageView whatsfordinner;
@@ -26,10 +28,14 @@ public class Welcome extends AppCompatActivity {
     private Button grocButton;
     private Button newDishButton;
 
+    public ArrayList<ArrayList<String>> allDishes;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
+
+        allDishes = new ArrayList<>();
 
         whatsfordinner = (ImageView) findViewById(R.id.whatsfordinner);
         welcomeLay = (ConstraintLayout) findViewById(R.id.welcomeLay);
