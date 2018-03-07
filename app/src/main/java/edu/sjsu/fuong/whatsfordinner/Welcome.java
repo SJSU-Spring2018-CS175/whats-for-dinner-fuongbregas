@@ -110,7 +110,7 @@ public class Welcome extends AppCompatActivity {
             inputStream.close();
 
         }
-        catch (FileNotFoundException){
+        catch (FileNotFoundException fnf){
             savedIngredientList = new ArrayList<>();
         }
         catch (IOException | ClassNotFoundException e) {

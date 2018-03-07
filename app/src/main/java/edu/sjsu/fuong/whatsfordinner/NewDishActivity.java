@@ -1,5 +1,6 @@
 package edu.sjsu.fuong.whatsfordinner;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -7,6 +8,7 @@ import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,8 +16,12 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 public class NewDishActivity extends AppCompatActivity {
@@ -24,11 +30,15 @@ public class NewDishActivity extends AppCompatActivity {
     private Button submitButton;
     private ImageButton addPicture;
     private AutoCompleteTextView item1;
+    private AutoCompleteTextView item2;
     private ImageView imageView;
 
 
+    public ArrayList<String> ingredient;
     public ArrayList<String> recipeList;
     public ArrayList<ArrayList<String>> allDishes;
+
+    public ArrayAdapter<String> ingredientAdapter;
 
 
     @Override
@@ -60,6 +70,32 @@ public class NewDishActivity extends AppCompatActivity {
         recipeName = (EditText) findViewById(R.id.recipeName);
         submitButton = (Button) findViewById(R.id.submitButt);
         addPicture = (ImageButton) findViewById(R.id.addPicture);
+        item1 = (AutoCompleteTextView) findViewById(R.id.item1);
+        item2 = (AutoCompleteTextView) findViewById(R.id.item2) ;
+
+        //allDishes = (ArrayList<ArrayList<String>>) getIntent().getSerializableExtra("dishList");
+        //ingredient = (ArrayList<String>) getIntent().getSerializableExtra("ingredientList");
+
+        ingredient = getIngredient();
+
+        // make dropdown with AutoCompleteTextView
+        ingredientAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line,ingredient);
+        item1.setAdapter(ingredientAdapter);
+        item2.setAdapter(ingredientAdapter);
+
+        item1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                item1.showDropDown();
+            }
+        });
+
+        item2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                item2.showDropDown();
+            }
+        });
 
         addPicture.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,6 +111,49 @@ public class NewDishActivity extends AppCompatActivity {
             }
         });
 
+        // If user still focus on
+        item1.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+
+            @Override
+            public void onFocusChange(View view, boolean hasFocus) {
+                if(!hasFocus){
+                    ingredient = getIngredient();
+                    if(!ingredient.contains(item1.getText().toString())){
+                        ingredient.add(item1.getText().toString());
+                        System.out.println("New Item added to Ingredient: " + item1.getText().toString());
+                        saveIngredientList(ingredient);
+                    }
+                    else{
+                        System.out.println("Already in Ingredient List");
+                    }
+                }
+                else{
+                    ingredientAdapter = new ArrayAdapter<String>(NewDishActivity.this, android.R.layout.simple_dropdown_item_1line,ingredient);
+                    item1.setAdapter(ingredientAdapter);
+                }
+
+            }
+        });
+
+        item2.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean hasFocus) {
+                if(!hasFocus){
+                    ingredient = getIngredient();
+                    if(!ingredient.contains(item2.getText().toString())){
+                        ingredient.add(item2.getText().toString());
+                        saveIngredientList(ingredient);
+                    }
+                    else{
+
+                    }
+                }
+                else{
+                    ingredientAdapter = new ArrayAdapter<String>(NewDishActivity.this, android.R.layout.simple_dropdown_item_1line,ingredient);
+                    item2.setAdapter(ingredientAdapter);
+                }
+            }
+        });
 
 
         submitButton.setOnClickListener(new View.OnClickListener() {
@@ -108,5 +187,74 @@ public class NewDishActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    private void saveIngredientList(ArrayList<String> ingredientList) {
+        try {
+            FileOutputStream fileOutputStream = openFileOutput("ingredientArrayList", Context.MODE_PRIVATE);
+            ObjectOutputStream out = new ObjectOutputStream(fileOutputStream);
+            out.writeObject(ingredientList);
+            out.close();
+            fileOutputStream.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void saveDishList(ArrayList<ArrayList<String>> allDishes) {
+        try {
+            FileOutputStream fileOutputStream = openFileOutput("dishesArrayList", Context.MODE_PRIVATE);
+            ObjectOutputStream out = new ObjectOutputStream(fileOutputStream);
+            out.writeObject(allDishes);
+            out.close();
+            fileOutputStream.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    private ArrayList<ArrayList<String>> getDishes() {
+        ArrayList<ArrayList<String>> savedDishedArrayList = null;
+
+        try {
+            FileInputStream inputStream = openFileInput("dishesArrayList");
+            ObjectInputStream in = new ObjectInputStream(inputStream);
+            savedDishedArrayList = (ArrayList<ArrayList<String>>) in.readObject();
+            in.close();
+            inputStream.close();
+
+        }
+        catch (FileNotFoundException e){
+            savedDishedArrayList = new ArrayList<>();
+        }
+        catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        return savedDishedArrayList;
+    }
+
+    private ArrayList<String> getIngredient() {
+        ArrayList<String> savedIngredientList = null;
+
+        try {
+            FileInputStream inputStream = openFileInput("ingredientArrayList");
+            ObjectInputStream in = new ObjectInputStream(inputStream);
+            savedIngredientList = (ArrayList<String>) in.readObject();
+            in.close();
+            inputStream.close();
+
+        }
+        catch (FileNotFoundException fnf){
+            savedIngredientList = new ArrayList<>();
+        }
+        catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        return savedIngredientList;
     }
 }
