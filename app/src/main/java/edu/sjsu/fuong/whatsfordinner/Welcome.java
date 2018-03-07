@@ -13,6 +13,10 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.util.ArrayList;
 
 public class Welcome extends AppCompatActivity {
@@ -29,13 +33,15 @@ public class Welcome extends AppCompatActivity {
     private Button newDishButton;
 
     public ArrayList<ArrayList<String>> allDishes;
+    public ArrayList<String> ingredient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
 
-        allDishes = new ArrayList<>();
+        allDishes = getDishes();
+        ingredient = getIngredient();
 
         whatsfordinner = (ImageView) findViewById(R.id.whatsfordinner);
         welcomeLay = (ConstraintLayout) findViewById(R.id.welcomeLay);
@@ -63,8 +69,54 @@ public class Welcome extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent newDish = new Intent(Welcome.this, NewDishActivity.class);
+                // Send ArrayList
+                newDish.putStringArrayListExtra("ingredientList", (ArrayList<String>) ingredient);
+                newDish.putExtra("dishList", (ArrayList<ArrayList<String>>) allDishes);
                 startActivity(newDish);
             }
         });
+    }
+
+
+    private ArrayList<ArrayList<String>> getDishes() {
+        ArrayList<ArrayList<String>> savedDishedArrayList = null;
+
+        try {
+            FileInputStream inputStream = openFileInput("dishesArrayList");
+            ObjectInputStream in = new ObjectInputStream(inputStream);
+            savedDishedArrayList = (ArrayList<ArrayList<String>>) in.readObject();
+            in.close();
+            inputStream.close();
+
+        }
+        catch (FileNotFoundException e){
+            savedDishedArrayList = new ArrayList<>();
+        }
+        catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        return savedDishedArrayList;
+    }
+
+    private ArrayList<String> getIngredient() {
+        ArrayList<String> savedIngredientList = null;
+
+        try {
+            FileInputStream inputStream = openFileInput("ingredientArrayList");
+            ObjectInputStream in = new ObjectInputStream(inputStream);
+            savedIngredientList = (ArrayList<String>) in.readObject();
+            in.close();
+            inputStream.close();
+
+        }
+        catch (FileNotFoundException){
+            savedIngredientList = new ArrayList<>();
+        }
+        catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        return savedIngredientList;
     }
 }
