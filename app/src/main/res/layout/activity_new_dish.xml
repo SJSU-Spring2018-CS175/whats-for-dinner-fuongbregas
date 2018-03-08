@@ -11,14 +11,15 @@
         android:id="@+id/linearLay"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="76dp">
 
         <EditText
             android:id="@+id/recipeName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter Recipe Name"
-            />
+            android:hint="Enter Recipe Name" />
 
 
         <LinearLayout
@@ -49,7 +50,7 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="271dp">
+            android:layout_height="145dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -60,19 +61,104 @@
                     android:id="@+id/item1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Item 1" />
+                    android:hint="Item 1"
+                    android:singleLine="true" />
+
                 <AutoCompleteTextView
                     android:id="@+id/item2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Item 2" />
+                    android:hint="Item 2"
+                    android:singleLine="true" />
+
+                <AutoCompleteTextView
+                    android:id="@+id/item3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Item 3"
+                    android:singleLine="true" />
+
+                <AutoCompleteTextView
+                    android:id="@+id/item4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Item 4"
+                    android:singleLine="true" />
+
+                <AutoCompleteTextView
+                    android:id="@+id/item5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Item 5"
+                    android:singleLine="true" />
+
+                <AutoCompleteTextView
+                    android:id="@+id/item6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Item 6"
+                    android:singleLine="true" />
+
+                <AutoCompleteTextView
+                    android:id="@+id/item7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Item 7"
+                    android:singleLine="true" />
+
+                <AutoCompleteTextView
+                    android:id="@+id/item8"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Item 8"
+                    android:singleLine="true" />
+
+                <AutoCompleteTextView
+                    android:id="@+id/item9"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Item 9"
+                    android:singleLine="true" />
+
+                <AutoCompleteTextView
+                    android:id="@+id/item10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Item 10"
+                    android:singleLine="true" />
 
             </LinearLayout>
 
 
-
-
         </ScrollView>
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Description"
+            android:textSize="18sp" />
+
+
+
+
+
+
+                <EditText
+                    android:id="@+id/descriptionText"
+                    android:layout_width="match_parent"
+                    android:layout_height="119dp"
+                    android:gravity="top|left"
+                    android:ems="10"
+                    android:hint="Add Description"
+                    android:inputType="textPersonName" />
+
+
+
+
+
+
+
 
         <Button
             android:id="@+id/submitButt"
