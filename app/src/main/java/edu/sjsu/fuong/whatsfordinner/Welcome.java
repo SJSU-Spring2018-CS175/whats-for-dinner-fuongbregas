@@ -85,6 +85,15 @@ public class Welcome extends AppCompatActivity {
                 startActivity(recipeAct);
             }
         });
+
+        grocButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent shoppingAct = new Intent(Welcome.this, GroceryActivity.class);
+
+                startActivity(shoppingAct);
+            }
+        });
     }
 
 
