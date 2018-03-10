@@ -6,4 +6,21 @@
     android:layout_height="match_parent"
     tools:context="edu.sjsu.fuong.whatsfordinner.RecipeActivity">
 
+
+    <fragment
+        android:id="@+id/portraitFrag"
+        android:name="edu.sjsu.fuong.whatsfordinner.PortraitFrag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <fragment
+        android:id="@+id/landscapeFrag"
+        android:name="edu.sjsu.fuong.whatsfordinner.LandscapeFrag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="59dp" />
+
 </android.support.constraint.ConstraintLayout>

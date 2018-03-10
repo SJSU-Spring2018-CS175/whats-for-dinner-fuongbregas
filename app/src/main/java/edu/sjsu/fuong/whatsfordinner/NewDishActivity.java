@@ -47,6 +47,7 @@ public class NewDishActivity extends AppCompatActivity {
     public ArrayList<String> ingredient;
     public ArrayList<String> currentDish;
     public ArrayList<ArrayList<String>> allDishes;
+    public ArrayList<ArrayList<String>> testLenght;
 
     public ArrayAdapter<String> ingredientAdapter;
 
@@ -96,7 +97,8 @@ public class NewDishActivity extends AppCompatActivity {
 
         imageView = (ImageView) findViewById(R.id.imageView);
 
-        //allDishes = (ArrayList<ArrayList<String>>) getIntent().getSerializableExtra("dishList");
+        testLenght = (ArrayList<ArrayList<String>>) getIntent().getSerializableExtra("dishList");
+        System.out.println("Length of allDishes " + testLenght.size());
         //ingredient = (ArrayList<String>) getIntent().getSerializableExtra("ingredientList");
 
         // allDishes array list
@@ -426,7 +428,7 @@ public class NewDishActivity extends AppCompatActivity {
                     currentDish.add(recipeName.getText().toString() + "bitmapName"); // index = 12
 
                     for(int i = 0; i < allDishes.size(); i++){
-                        if(allDishes.get(i).get(0).equals(currentDish.get(0))){
+                        if(allDishes.get(i).get(0).toLowerCase().equals(currentDish.get(0).toLowerCase())){
                             counter = i;
                             System.out.println("Duplicated Dish");
                         }
