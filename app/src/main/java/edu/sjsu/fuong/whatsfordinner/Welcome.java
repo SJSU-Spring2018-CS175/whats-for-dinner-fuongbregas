@@ -79,7 +79,10 @@ public class Welcome extends AppCompatActivity {
         receipeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent recipeAct = new Intent(Welcome.this, RecipeActivity.class);
+                recipeAct.putStringArrayListExtra("ingredientList", (ArrayList<String>) ingredient);
+                recipeAct.putExtra("dishList", (ArrayList<ArrayList<String>>) allDishes);
+                startActivity(recipeAct);
             }
         });
     }
