@@ -27,7 +27,7 @@ public class RecipeActivity extends AppCompatActivity implements Serializable {
 
         Bundle bundle = new Bundle();
 
-        bundle.putSerializable("allDishes", allDishes);
+        bundle.putSerializable("dishList", allDishes);
 
         Configuration configuration = getResources().getConfiguration();
 

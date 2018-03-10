@@ -40,7 +40,7 @@ public class PortraitFrag extends Fragment  {
             //Toast.makeText(PortraitFrag.this.getActivity(), "Args is Empty", Toast.LENGTH_LONG).show();
         }else{
             // Get ArrayList from RecipeAct
-            allDishes = (ArrayList<ArrayList<String>>) args.getSerializable("allDishes");
+            allDishes = (ArrayList<ArrayList<String>>) args.getSerializable("dishList");
             System.out.println("Length of allDishes " + allDishes.size());
             // Get all the string at index 0, which are names of dishes
 
@@ -49,7 +49,7 @@ public class PortraitFrag extends Fragment  {
                 dishNames.add(allDishes.get(i).get(0));
             }
             System.out.println("Length of dishNames " + dishNames.size());
-
+            System.out.println("dishNames Item port: " + dishNames.get(1));
 
         }
 
