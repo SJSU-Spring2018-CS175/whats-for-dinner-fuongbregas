@@ -1,6 +1,7 @@
 package edu.sjsu.fuong.whatsfordinner;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
@@ -55,6 +56,7 @@ public class PortraitFrag extends Fragment  {
 
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_portrait, container, false);
+        view.setBackgroundColor(Color.WHITE);
         ArrayAdapter portraitAdapter = new ArrayAdapter(PortraitFrag.this.getActivity(), android.R.layout.simple_expandable_list_item_1, dishNames);
         listViewPortrait = (ListView) view.findViewById(R.id.listViewPortrait);
         listViewPortrait.setAdapter(portraitAdapter);
