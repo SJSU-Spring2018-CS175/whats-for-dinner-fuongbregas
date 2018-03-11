@@ -57,75 +57,295 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <AutoCompleteTextView
-                    android:id="@+id/item1"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Item 1"
-                    android:singleLine="true" />
+                    android:orientation="horizontal">
 
-                <AutoCompleteTextView
-                    android:id="@+id/item2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Item 2"
-                    android:singleLine="true" />
+                    <AutoCompleteTextView
+                        android:id="@+id/item1"
+                        android:layout_width="220dp"
+                        android:layout_height="wrap_content"
+                        android:hint="Item 1"
+                        android:singleLine="true" />
 
-                <AutoCompleteTextView
-                    android:id="@+id/item3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Item 3"
-                    android:singleLine="true" />
+                    <EditText
+                        android:id="@+id/quantity1"
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:hint="Quantity"
+                        android:inputType="number"
+                        android:singleLine="true" />
+                    <EditText
+                        android:id="@+id/unit1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Unit"
+                        android:singleLine="true"/>
+                </LinearLayout>
 
-                <AutoCompleteTextView
-                    android:id="@+id/item4"
+                <!-- 2nd ingredient -->
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Item 4"
-                    android:singleLine="true" />
+                    android:orientation="horizontal">
 
-                <AutoCompleteTextView
-                    android:id="@+id/item5"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Item 5"
-                    android:singleLine="true" />
+                    <AutoCompleteTextView
+                        android:id="@+id/item2"
+                        android:layout_width="220dp"
+                        android:layout_height="wrap_content"
+                        android:hint="Item 2"
+                        android:singleLine="true" />
 
-                <AutoCompleteTextView
-                    android:id="@+id/item6"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Item 6"
-                    android:singleLine="true" />
+                    <EditText
+                        android:id="@+id/quantity2"
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:hint="Quantity"
+                        android:inputType="number"
+                        android:singleLine="true" />
+                    <EditText
+                        android:id="@+id/unit2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Unit"
+                        android:singleLine="true"/>
+                </LinearLayout>
 
-                <AutoCompleteTextView
-                    android:id="@+id/item7"
+                <!-- 3rd ingredient -->
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Item 7"
-                    android:singleLine="true" />
+                    android:orientation="horizontal">
 
-                <AutoCompleteTextView
-                    android:id="@+id/item8"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Item 8"
-                    android:singleLine="true" />
+                    <AutoCompleteTextView
+                        android:id="@+id/item3"
+                        android:layout_width="220dp"
+                        android:layout_height="wrap_content"
+                        android:hint="Item 3"
+                        android:singleLine="true" />
 
-                <AutoCompleteTextView
-                    android:id="@+id/item9"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Item 9"
-                    android:singleLine="true" />
+                    <EditText
+                        android:id="@+id/quantity3"
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:hint="Quantity"
+                        android:inputType="number"
+                        android:singleLine="true" />
+                    <EditText
+                        android:id="@+id/unit3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Unit"
+                        android:singleLine="true"/>
 
-                <AutoCompleteTextView
-                    android:id="@+id/item10"
+                </LinearLayout>
+
+                <!-- 4th ingredient -->
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Item 10"
-                    android:singleLine="true" />
+                    android:orientation="horizontal">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/item4"
+                        android:layout_width="220dp"
+                        android:layout_height="wrap_content"
+                        android:hint="Item 4"
+                        android:singleLine="true" />
+
+                    <EditText
+                        android:id="@+id/quantity4"
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:hint="Quantity"
+                        android:inputType="number"
+                        android:singleLine="true" />
+                    <EditText
+                        android:id="@+id/unit4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Unit"
+                        android:singleLine="true"/>
+                </LinearLayout>
+
+                <!-- 5th ingredient -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/item5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Item 5"
+                        android:singleLine="true" />
+
+                    <EditText
+                        android:id="@+id/quantity5"
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:hint="Quantity"
+                        android:inputType="number"
+                        android:singleLine="true" />
+                    <EditText
+                        android:id="@+id/unit5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Unit"
+                        android:singleLine="true"/>
+                </LinearLayout>
+
+                <!-- 6th ingredient -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/item6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Item 6"
+                        android:singleLine="true" />
+
+                    <EditText
+                        android:id="@+id/quantity6"
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:hint="Quantity"
+                        android:inputType="number"
+                        android:singleLine="true" />
+                    <EditText
+                        android:id="@+id/unit6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Unit"
+                        android:singleLine="true"/>
+
+                </LinearLayout>
+
+                <!-- 7th ingredient -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/item7"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Item 7"
+                        android:singleLine="true" />
+
+                    <EditText
+                        android:id="@+id/quantity7"
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:hint="Quantity"
+                        android:inputType="number"
+                        android:singleLine="true" />
+                    <EditText
+                        android:id="@+id/unit7"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Unit"
+                        android:singleLine="true"/>
+
+                </LinearLayout>
+
+                <!-- 8th ingredient -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/item8"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Item 8"
+                        android:singleLine="true" />
+
+                    <EditText
+                        android:id="@+id/quantity8"
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:hint="Quantity"
+                        android:inputType="number"
+                        android:singleLine="true" />
+                    <EditText
+                        android:id="@+id/unit8"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Unit"
+                        android:singleLine="true"/>
+
+                </LinearLayout>
+
+                <!-- 9th ingredient -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/item9"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Item 9"
+                        android:singleLine="true" />
+
+                    <EditText
+                        android:id="@+id/quantity9"
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:hint="Quantity"
+                        android:inputType="number"
+                        android:singleLine="true" />
+                    <EditText
+                        android:id="@+id/unit9"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Unit"
+                        android:singleLine="true"/>
+
+                </LinearLayout>
+
+                <!-- 10th ingredient -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/item10"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Item 10"
+                        android:singleLine="true" />
+
+                    <EditText
+                        android:id="@+id/quantity10"
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:hint="Quantity"
+                        android:inputType="number"
+                        android:singleLine="true" />
+                    <EditText
+                        android:id="@+id/unit10"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Unit"
+                        android:singleLine="true"/>
+
+                </LinearLayout>
+
+
+
+
+
 
             </LinearLayout>
 
