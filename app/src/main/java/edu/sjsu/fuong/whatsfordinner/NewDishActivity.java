@@ -3,6 +3,7 @@ package edu.sjsu.fuong.whatsfordinner;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
@@ -473,7 +474,7 @@ public class NewDishActivity extends AppCompatActivity {
                     }
 
                     else if (item1.getText().toString().isEmpty() && quantity1.getText().toString().isEmpty() && unit1.getText().toString().isEmpty()) { // _ _ _
-                        currentDish.add(item1.getText().toString()); // Add empty string
+                        currentDish.add(""); // Add empty string
                     }
                     else if ((!item1.getText().toString().isEmpty() && quantity1.getText().toString().isEmpty() && unit1.getText().toString().isEmpty()) // X__
                             || (!item1.getText().toString().isEmpty() && quantity1.getText().toString().isEmpty() && !unit1.getText().toString().isEmpty()) // X_X
@@ -496,7 +497,7 @@ public class NewDishActivity extends AppCompatActivity {
                     }
 
                     else if (item2.getText().toString().isEmpty() && quantity2.getText().toString().isEmpty() && unit2.getText().toString().isEmpty()) { // _ _ _
-                        currentDish.add(item2.getText().toString()); // Add empty string
+                        currentDish.add(""); // Add empty string
                     }
                     else if ((!item2.getText().toString().isEmpty() && quantity2.getText().toString().isEmpty() && unit2.getText().toString().isEmpty()) // X__
                             || (!item2.getText().toString().isEmpty() && quantity2.getText().toString().isEmpty() && !unit2.getText().toString().isEmpty()) // X_X
@@ -519,7 +520,7 @@ public class NewDishActivity extends AppCompatActivity {
                     }
 
                     else if (item3.getText().toString().isEmpty() && quantity3.getText().toString().isEmpty() && unit3.getText().toString().isEmpty()) { // _ _ _
-                        currentDish.add(item3.getText().toString()); // Add empty string
+                        currentDish.add(""); // Add empty string
                     }
                     else if ((!item3.getText().toString().isEmpty() && quantity3.getText().toString().isEmpty() && unit3.getText().toString().isEmpty()) // X__
                             || (!item3.getText().toString().isEmpty() && quantity3.getText().toString().isEmpty() && !unit3.getText().toString().isEmpty()) // X_X
@@ -542,7 +543,7 @@ public class NewDishActivity extends AppCompatActivity {
                     }
 
                     else if (item4.getText().toString().isEmpty() && quantity4.getText().toString().isEmpty() && unit4.getText().toString().isEmpty()) { // _ _ _
-                        currentDish.add(item4.getText().toString()); // Add empty string
+                        currentDish.add(""); // Add empty string
                     }
                     else if ((!item4.getText().toString().isEmpty() && quantity4.getText().toString().isEmpty() && unit4.getText().toString().isEmpty()) // X__
                             || (!item4.getText().toString().isEmpty() && quantity4.getText().toString().isEmpty() && !unit4.getText().toString().isEmpty()) // X_X
@@ -565,7 +566,7 @@ public class NewDishActivity extends AppCompatActivity {
                     }
 
                     else if (item5.getText().toString().isEmpty() && quantity5.getText().toString().isEmpty() && unit5.getText().toString().isEmpty()) { // _ _ _
-                        currentDish.add(item5.getText().toString()); // Add empty string
+                        currentDish.add(""); // Add empty string
                     }
                     else if ((!item5.getText().toString().isEmpty() && quantity5.getText().toString().isEmpty() && unit5.getText().toString().isEmpty()) // X__
                             || (!item5.getText().toString().isEmpty() && quantity5.getText().toString().isEmpty() && !unit5.getText().toString().isEmpty()) // X_X
@@ -588,7 +589,7 @@ public class NewDishActivity extends AppCompatActivity {
                     }
 
                     else if (item6.getText().toString().isEmpty() && quantity6.getText().toString().isEmpty() && unit6.getText().toString().isEmpty()) { // _ _ _
-                        currentDish.add(item6.getText().toString()); // Add empty string
+                        currentDish.add(""); // Add empty string
                     }
                     else if ((!item6.getText().toString().isEmpty() && quantity6.getText().toString().isEmpty() && unit6.getText().toString().isEmpty()) // X__
                             || (!item6.getText().toString().isEmpty() && quantity6.getText().toString().isEmpty() && !unit6.getText().toString().isEmpty()) // X_X
@@ -611,7 +612,7 @@ public class NewDishActivity extends AppCompatActivity {
                     }
 
                     else if (item7.getText().toString().isEmpty() && quantity7.getText().toString().isEmpty() && unit7.getText().toString().isEmpty()) { // _ _ _
-                        currentDish.add(item7.getText().toString()); // Add empty string
+                        currentDish.add(""); // Add empty string
                     }
                     else if ((!item7.getText().toString().isEmpty() && quantity7.getText().toString().isEmpty() && unit7.getText().toString().isEmpty()) // X__
                             || (!item7.getText().toString().isEmpty() && quantity7.getText().toString().isEmpty() && !unit7.getText().toString().isEmpty()) // X_X
@@ -634,7 +635,7 @@ public class NewDishActivity extends AppCompatActivity {
                     }
 
                     else if (item8.getText().toString().isEmpty() && quantity8.getText().toString().isEmpty() && unit8.getText().toString().isEmpty()) { // _ _ _
-                        currentDish.add(item8.getText().toString()); // Add empty string
+                        currentDish.add(""); // Add empty string
                     }
                     else if ((!item8.getText().toString().isEmpty() && quantity8.getText().toString().isEmpty() && unit8.getText().toString().isEmpty()) // X__
                             || (!item8.getText().toString().isEmpty() && quantity8.getText().toString().isEmpty() && !unit8.getText().toString().isEmpty()) // X_X
@@ -657,7 +658,7 @@ public class NewDishActivity extends AppCompatActivity {
                     }
 
                     else if (item9.getText().toString().isEmpty() && quantity9.getText().toString().isEmpty() && unit9.getText().toString().isEmpty()) { // _ _ _
-                        currentDish.add(item9.getText().toString()); // Add empty string
+                        currentDish.add(""); // Add empty string
                     }
                     else if ((!item9.getText().toString().isEmpty() && quantity9.getText().toString().isEmpty() && unit9.getText().toString().isEmpty()) // X__
                             || (!item9.getText().toString().isEmpty() && quantity9.getText().toString().isEmpty() && !unit9.getText().toString().isEmpty()) // X_X
@@ -680,7 +681,7 @@ public class NewDishActivity extends AppCompatActivity {
                     }
 
                     else if (item10.getText().toString().isEmpty() && quantity10.getText().toString().isEmpty() && unit10.getText().toString().isEmpty()) { // _ _ _
-                        currentDish.add(item10.getText().toString()); // Add empty string
+                        currentDish.add(""); // Add empty string
                     }
                     else if ((!item10.getText().toString().isEmpty() && quantity10.getText().toString().isEmpty() && unit10.getText().toString().isEmpty()) // X__
                             || (!item10.getText().toString().isEmpty() && quantity10.getText().toString().isEmpty() && !unit10.getText().toString().isEmpty()) // X_X
@@ -731,7 +732,7 @@ public class NewDishActivity extends AppCompatActivity {
                         }
                         // Save to file
                         saveDishList(allDishes); // save arrayList
-                        saveBitMap(imageView); // save bitmap object
+                        saveBitMap(imageView, currentDish.get(12)); // save bitmap object
                         Intent welcomeScreen = new Intent(NewDishActivity.this, Welcome.class);
                         startActivity(welcomeScreen);
                     }
@@ -770,14 +771,14 @@ public class NewDishActivity extends AppCompatActivity {
         }
     }
 
-    private void saveBitMap(ImageView imageView){
+    private void saveBitMap(ImageView imageView, String name){
         try{
-            imageView.buildDrawingCache();
-            Bitmap bmap = imageView.getDrawingCache();
+            BitmapDrawable drawable = (BitmapDrawable) imageView.getDrawable();
+            Bitmap bitmap = drawable.getBitmap();
 
-            FileOutputStream  fileOutputStream  = openFileOutput(currentDish.get(12),Context.MODE_PRIVATE);
+            FileOutputStream  fileOutputStream  = openFileOutput(name,Context.MODE_PRIVATE);
             ObjectOutputStream out = new ObjectOutputStream(fileOutputStream);
-            out.writeObject(bmap);
+            out.writeObject(bitmap);
             out.close();
             fileOutputStream.close();
         }
@@ -828,4 +829,7 @@ public class NewDishActivity extends AppCompatActivity {
 
         return savedIngredientList;
     }
+
+
+
 }

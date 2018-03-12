@@ -8,6 +8,7 @@ import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.app.FragmentTransaction;
@@ -24,6 +25,9 @@ public class PortraitFrag extends Fragment  {
 
     public ArrayList<ArrayList<String>> allDishes;
     public ArrayList<String> dishNames;
+
+    // For Meal Activity
+
 
     public PortraitFrag() {
         // Required empty public constructor
@@ -60,6 +64,13 @@ public class PortraitFrag extends Fragment  {
         ArrayAdapter portraitAdapter = new ArrayAdapter(PortraitFrag.this.getActivity(), android.R.layout.simple_expandable_list_item_1, dishNames);
         listViewPortrait = (ListView) view.findViewById(R.id.listViewPortrait);
         listViewPortrait.setAdapter(portraitAdapter);
+
+        listViewPortrait.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+            }
+        });
 
         return view;
     }
