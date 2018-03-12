@@ -39,6 +39,29 @@ public class NewDishActivity extends AppCompatActivity {
     private AutoCompleteTextView item8;
     private AutoCompleteTextView item9;
     private AutoCompleteTextView item10;
+
+    private EditText quantity1;
+    private EditText quantity2;
+    private EditText quantity3;
+    private EditText quantity4;
+    private EditText quantity5;
+    private EditText quantity6;
+    private EditText quantity7;
+    private EditText quantity8;
+    private EditText quantity9;
+    private EditText quantity10;
+
+    private EditText unit1;
+    private EditText unit2;
+    private EditText unit3;
+    private EditText unit4;
+    private EditText unit5;
+    private EditText unit6;
+    private EditText unit7;
+    private EditText unit8;
+    private EditText unit9;
+    private EditText unit10;
+
     private EditText descriptionText;
 
     private ImageView imageView;
@@ -82,6 +105,7 @@ public class NewDishActivity extends AppCompatActivity {
         submitButton = (Button) findViewById(R.id.submitButt);
         addPicture = (ImageButton) findViewById(R.id.addPicture);
 
+        // Dish Name
         item1 = (AutoCompleteTextView) findViewById(R.id.item1);
         item2 = (AutoCompleteTextView) findViewById(R.id.item2);
         item3 = (AutoCompleteTextView) findViewById(R.id.item3);
@@ -92,6 +116,30 @@ public class NewDishActivity extends AppCompatActivity {
         item8 = (AutoCompleteTextView) findViewById(R.id.item8);
         item9 = (AutoCompleteTextView) findViewById(R.id.item9);
         item10 = (AutoCompleteTextView) findViewById(R.id.item10);
+
+        // Quantity
+        quantity1 = (EditText) findViewById(R.id.quantity1);
+        quantity2 = (EditText) findViewById(R.id.quantity2);
+        quantity3 = (EditText) findViewById(R.id.quantity3);
+        quantity4 = (EditText) findViewById(R.id.quantity4);
+        quantity5 = (EditText) findViewById(R.id.quantity5);
+        quantity6 = (EditText) findViewById(R.id.quantity6);
+        quantity7 = (EditText) findViewById(R.id.quantity7);
+        quantity8 = (EditText) findViewById(R.id.quantity8);
+        quantity9 = (EditText) findViewById(R.id.quantity9);
+        quantity10 = (EditText) findViewById(R.id.quantity10);
+
+        // Unit
+        unit1 = (EditText) findViewById(R.id.unit1);
+        unit2 = (EditText) findViewById(R.id.unit2);
+        unit3 = (EditText) findViewById(R.id.unit3);
+        unit4 = (EditText) findViewById(R.id.unit4);
+        unit5 = (EditText) findViewById(R.id.unit5);
+        unit6 = (EditText) findViewById(R.id.unit6);
+        unit7 = (EditText) findViewById(R.id.unit7);
+        unit8 = (EditText) findViewById(R.id.unit8);
+        unit9 = (EditText) findViewById(R.id.unit9);
+        unit10 = (EditText) findViewById(R.id.unit10);
 
         descriptionText = (EditText) findViewById(R.id.descriptionText);
 
@@ -408,13 +456,245 @@ public class NewDishActivity extends AppCompatActivity {
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 if(recipeName.getText().toString().isEmpty()){
                     Toast.makeText(NewDishActivity.this, "Recipe's name is empty!",Toast.LENGTH_LONG).show();
                 }
                 else {
+                    int condition = 0;
                     int counter = 0;
                     currentDish.add(recipeName.getText().toString()); // index = 0
-                    currentDish.add(item1.getText().toString()); // index = 1
+                    // index = 1
+                    if((item1.getText().toString().isEmpty() && !quantity1.getText().toString().isEmpty() && !unit1.getText().toString().isEmpty()) // _XX
+                            || (item1.getText().toString().isEmpty() && !quantity1.getText().toString().isEmpty() && unit1.getText().toString().isEmpty()) // _X_
+                            || (item1.getText().toString().isEmpty() && quantity1.getText().toString().isEmpty()  && !unit1.getText().toString().isEmpty())){ //__X
+                        Toast.makeText(NewDishActivity.this, "Item 1 name can't be left empty!", Toast.LENGTH_LONG).show();
+                        condition = 1;
+                    }
+
+                    else if (item1.getText().toString().isEmpty() && quantity1.getText().toString().isEmpty() && unit1.getText().toString().isEmpty()) { // _ _ _
+                        currentDish.add(item1.getText().toString()); // Add empty string
+                    }
+                    else if ((!item1.getText().toString().isEmpty() && quantity1.getText().toString().isEmpty() && unit1.getText().toString().isEmpty()) // X__
+                            || (!item1.getText().toString().isEmpty() && quantity1.getText().toString().isEmpty() && !unit1.getText().toString().isEmpty()) // X_X
+                            || (!item1.getText().toString().isEmpty() && !quantity1.getText().toString().isEmpty() && unit1.getText().toString().isEmpty())) // XX_
+                    {
+                        condition = 1;
+                        Toast.makeText(NewDishActivity.this, "Quantity 1 or Unit 1 can't be left empty", Toast.LENGTH_LONG).show();
+                    }
+
+                    else if (!item1.getText().toString().isEmpty() && !quantity1.getText().toString().isEmpty() && !unit1.getText().toString().isEmpty()){
+                        currentDish.add(item1.getText().toString() + " " + quantity1.getText().toString() + " " + unit1.getText().toString());
+                    }
+
+                    // index 2
+                    if((item2.getText().toString().isEmpty() && !quantity2.getText().toString().isEmpty() && !unit2.getText().toString().isEmpty()) // _XX
+                            || (item2.getText().toString().isEmpty() && !quantity2.getText().toString().isEmpty() && unit2.getText().toString().isEmpty()) // _X_
+                            || (item2.getText().toString().isEmpty() && quantity2.getText().toString().isEmpty()  && !unit2.getText().toString().isEmpty())){ //__X
+                        Toast.makeText(NewDishActivity.this, "Item 2 name can't be left empty!", Toast.LENGTH_LONG).show();
+                        condition = 1;
+                    }
+
+                    else if (item2.getText().toString().isEmpty() && quantity2.getText().toString().isEmpty() && unit2.getText().toString().isEmpty()) { // _ _ _
+                        currentDish.add(item2.getText().toString()); // Add empty string
+                    }
+                    else if ((!item2.getText().toString().isEmpty() && quantity2.getText().toString().isEmpty() && unit2.getText().toString().isEmpty()) // X__
+                            || (!item2.getText().toString().isEmpty() && quantity2.getText().toString().isEmpty() && !unit2.getText().toString().isEmpty()) // X_X
+                            || (!item2.getText().toString().isEmpty() && !quantity2.getText().toString().isEmpty() && unit2.getText().toString().isEmpty())) // XX_
+                    {
+                        condition = 1;
+                        Toast.makeText(NewDishActivity.this, "Quantity 2 or Unit 2 can't be left empty", Toast.LENGTH_LONG).show();
+                    }
+
+                    else if (!item2.getText().toString().isEmpty() && !quantity2.getText().toString().isEmpty() && !unit2.getText().toString().isEmpty()){
+                        currentDish.add(item2.getText().toString() + " " + quantity2.getText().toString() + " " + unit2.getText().toString());
+                    }
+
+                    // Index 3
+                    if((item3.getText().toString().isEmpty() && !quantity3.getText().toString().isEmpty() && !unit3.getText().toString().isEmpty()) // _XX
+                            || (item3.getText().toString().isEmpty() && !quantity3.getText().toString().isEmpty() && unit3.getText().toString().isEmpty()) // _X_
+                            || (item3.getText().toString().isEmpty() && quantity3.getText().toString().isEmpty()  && !unit3.getText().toString().isEmpty())){ //__X
+                        Toast.makeText(NewDishActivity.this, "Item 3 name can't be left empty!", Toast.LENGTH_LONG).show();
+                        condition = 1;
+                    }
+
+                    else if (item3.getText().toString().isEmpty() && quantity3.getText().toString().isEmpty() && unit3.getText().toString().isEmpty()) { // _ _ _
+                        currentDish.add(item3.getText().toString()); // Add empty string
+                    }
+                    else if ((!item3.getText().toString().isEmpty() && quantity3.getText().toString().isEmpty() && unit3.getText().toString().isEmpty()) // X__
+                            || (!item3.getText().toString().isEmpty() && quantity3.getText().toString().isEmpty() && !unit3.getText().toString().isEmpty()) // X_X
+                            || (!item3.getText().toString().isEmpty() && !quantity3.getText().toString().isEmpty() && unit3.getText().toString().isEmpty())) // XX_
+                    {
+                        condition = 1;
+                        Toast.makeText(NewDishActivity.this, "Quantity 3 or Unit 3 can't be left empty", Toast.LENGTH_LONG).show();
+                    }
+
+                    else if (!item3.getText().toString().isEmpty() && !quantity3.getText().toString().isEmpty() && !unit3.getText().toString().isEmpty()){
+                        currentDish.add(item3.getText().toString() + " " + quantity3.getText().toString() + " " + unit3.getText().toString());
+                    }
+
+                    // Index 4
+                    if((item4.getText().toString().isEmpty() && !quantity4.getText().toString().isEmpty() && !unit4.getText().toString().isEmpty()) // _XX
+                            || (item4.getText().toString().isEmpty() && !quantity4.getText().toString().isEmpty() && unit4.getText().toString().isEmpty()) // _X_
+                            || (item4.getText().toString().isEmpty() && quantity4.getText().toString().isEmpty()  && !unit4.getText().toString().isEmpty())){ //__X
+                        Toast.makeText(NewDishActivity.this, "Item 4 name can't be left empty!", Toast.LENGTH_LONG).show();
+                        condition = 1;
+                    }
+
+                    else if (item4.getText().toString().isEmpty() && quantity4.getText().toString().isEmpty() && unit4.getText().toString().isEmpty()) { // _ _ _
+                        currentDish.add(item4.getText().toString()); // Add empty string
+                    }
+                    else if ((!item4.getText().toString().isEmpty() && quantity4.getText().toString().isEmpty() && unit4.getText().toString().isEmpty()) // X__
+                            || (!item4.getText().toString().isEmpty() && quantity4.getText().toString().isEmpty() && !unit4.getText().toString().isEmpty()) // X_X
+                            || (!item4.getText().toString().isEmpty() && !quantity4.getText().toString().isEmpty() && unit4.getText().toString().isEmpty())) // XX_
+                    {
+                        condition = 1;
+                        Toast.makeText(NewDishActivity.this, "Quantity 4 or Unit 4 can't be left empty", Toast.LENGTH_LONG).show();
+                    }
+
+                    else if (!item4.getText().toString().isEmpty() && !quantity4.getText().toString().isEmpty() && !quantity4.getText().toString().isEmpty()){
+                        currentDish.add(item4.getText().toString() + " " + quantity4.getText().toString() + " " + unit4.getText().toString());
+                    }
+
+                    // Index 5
+                    if((item5.getText().toString().isEmpty() && !quantity5.getText().toString().isEmpty() && !unit5.getText().toString().isEmpty()) // _XX
+                            || (item5.getText().toString().isEmpty() && !quantity5.getText().toString().isEmpty() && unit5.getText().toString().isEmpty()) // _X_
+                            || (item5.getText().toString().isEmpty() && quantity5.getText().toString().isEmpty()  && !unit5.getText().toString().isEmpty())){ //__X
+                        Toast.makeText(NewDishActivity.this, "Item 5 name can't be left empty!", Toast.LENGTH_LONG).show();
+                        condition = 1;
+                    }
+
+                    else if (item5.getText().toString().isEmpty() && quantity5.getText().toString().isEmpty() && unit5.getText().toString().isEmpty()) { // _ _ _
+                        currentDish.add(item5.getText().toString()); // Add empty string
+                    }
+                    else if ((!item5.getText().toString().isEmpty() && quantity5.getText().toString().isEmpty() && unit5.getText().toString().isEmpty()) // X__
+                            || (!item5.getText().toString().isEmpty() && quantity5.getText().toString().isEmpty() && !unit5.getText().toString().isEmpty()) // X_X
+                            || (!item5.getText().toString().isEmpty() && !quantity5.getText().toString().isEmpty() && unit5.getText().toString().isEmpty())) // XX_
+                    {
+                        condition = 1;
+                        Toast.makeText(NewDishActivity.this, "Quantity 5 or Unit 5 can't be left empty", Toast.LENGTH_LONG).show();
+                    }
+
+                    else if (!item5.getText().toString().isEmpty() && !quantity5.getText().toString().isEmpty() && !quantity5.getText().toString().isEmpty()){
+                        currentDish.add(item5.getText().toString() + " " + quantity5.getText().toString() + " " + unit5.getText().toString());
+                    }
+
+                    // Index 6
+                    if((item6.getText().toString().isEmpty() && !quantity6.getText().toString().isEmpty() && !unit6.getText().toString().isEmpty()) // _XX
+                            || (item6.getText().toString().isEmpty() && !quantity6.getText().toString().isEmpty() && unit6.getText().toString().isEmpty()) // _X_
+                            || (item6.getText().toString().isEmpty() && quantity6.getText().toString().isEmpty()  && !unit6.getText().toString().isEmpty())){ //__X
+                        Toast.makeText(NewDishActivity.this, "Item 6 name can't be left empty!", Toast.LENGTH_LONG).show();
+                        condition = 1;
+                    }
+
+                    else if (item6.getText().toString().isEmpty() && quantity6.getText().toString().isEmpty() && unit6.getText().toString().isEmpty()) { // _ _ _
+                        currentDish.add(item6.getText().toString()); // Add empty string
+                    }
+                    else if ((!item6.getText().toString().isEmpty() && quantity6.getText().toString().isEmpty() && unit6.getText().toString().isEmpty()) // X__
+                            || (!item6.getText().toString().isEmpty() && quantity6.getText().toString().isEmpty() && !unit6.getText().toString().isEmpty()) // X_X
+                            || (!item6.getText().toString().isEmpty() && !quantity6.getText().toString().isEmpty() && unit6.getText().toString().isEmpty())) // XX_
+                    {
+                        condition = 1;
+                        Toast.makeText(NewDishActivity.this, "Quantity 6 or Unit 6 can't be left empty", Toast.LENGTH_LONG).show();
+                    }
+
+                    else if (!item6.getText().toString().isEmpty() && !quantity6.getText().toString().isEmpty() && !quantity6.getText().toString().isEmpty()){
+                        currentDish.add(item6.getText().toString() + " " + quantity6.getText().toString() + " " + unit6.getText().toString());
+                    }
+
+                    // Index 7
+                    if((item7.getText().toString().isEmpty() && !quantity7.getText().toString().isEmpty() && !unit7.getText().toString().isEmpty()) // _XX
+                            || (item7.getText().toString().isEmpty() && !quantity7.getText().toString().isEmpty() && unit7.getText().toString().isEmpty()) // _X_
+                            || (item7.getText().toString().isEmpty() && quantity7.getText().toString().isEmpty()  && !unit7.getText().toString().isEmpty())){ //__X
+                        Toast.makeText(NewDishActivity.this, "Item 7 name can't be left empty!", Toast.LENGTH_LONG).show();
+                        condition = 1;
+                    }
+
+                    else if (item7.getText().toString().isEmpty() && quantity7.getText().toString().isEmpty() && unit7.getText().toString().isEmpty()) { // _ _ _
+                        currentDish.add(item7.getText().toString()); // Add empty string
+                    }
+                    else if ((!item7.getText().toString().isEmpty() && quantity7.getText().toString().isEmpty() && unit7.getText().toString().isEmpty()) // X__
+                            || (!item7.getText().toString().isEmpty() && quantity7.getText().toString().isEmpty() && !unit7.getText().toString().isEmpty()) // X_X
+                            || (!item7.getText().toString().isEmpty() && !quantity7.getText().toString().isEmpty() && unit7.getText().toString().isEmpty())) // XX_
+                    {
+                        condition = 1;
+                        Toast.makeText(NewDishActivity.this, "Quantity 7 or Unit 7 can't be left empty", Toast.LENGTH_LONG).show();
+                    }
+
+                    else if (!item7.getText().toString().isEmpty() && !quantity7.getText().toString().isEmpty() && !quantity7.getText().toString().isEmpty()){
+                        currentDish.add(item7.getText().toString() + " " + quantity7.getText().toString() + " " + unit7.getText().toString());
+                    }
+
+                    // Index 8
+                    if((item8.getText().toString().isEmpty() && !quantity8.getText().toString().isEmpty() && !unit8.getText().toString().isEmpty()) // _XX
+                            || (item8.getText().toString().isEmpty() && !quantity8.getText().toString().isEmpty() && unit8.getText().toString().isEmpty()) // _X_
+                            || (item8.getText().toString().isEmpty() && quantity8.getText().toString().isEmpty()  && !unit8.getText().toString().isEmpty())){ //__X
+                        Toast.makeText(NewDishActivity.this, "Item 8 name can't be left empty!", Toast.LENGTH_LONG).show();
+                        condition = 1;
+                    }
+
+                    else if (item8.getText().toString().isEmpty() && quantity8.getText().toString().isEmpty() && unit8.getText().toString().isEmpty()) { // _ _ _
+                        currentDish.add(item8.getText().toString()); // Add empty string
+                    }
+                    else if ((!item8.getText().toString().isEmpty() && quantity8.getText().toString().isEmpty() && unit8.getText().toString().isEmpty()) // X__
+                            || (!item8.getText().toString().isEmpty() && quantity8.getText().toString().isEmpty() && !unit8.getText().toString().isEmpty()) // X_X
+                            || (!item8.getText().toString().isEmpty() && !quantity8.getText().toString().isEmpty() && unit8.getText().toString().isEmpty())) // XX_
+                    {
+                        condition = 1;
+                        Toast.makeText(NewDishActivity.this, "Quantity 8 or Unit 8 can't be left empty", Toast.LENGTH_LONG).show();
+                    }
+
+                    else if (!item8.getText().toString().isEmpty() && !quantity8.getText().toString().isEmpty() && !quantity8.getText().toString().isEmpty()){
+                        currentDish.add(item8.getText().toString() + " " + quantity8.getText().toString() + " " + unit8.getText().toString());
+                    }
+
+                    // Index 9
+                    if((item9.getText().toString().isEmpty() && !quantity9.getText().toString().isEmpty() && !unit9.getText().toString().isEmpty()) // _XX
+                            || (item9.getText().toString().isEmpty() && !quantity9.getText().toString().isEmpty() && unit9.getText().toString().isEmpty()) // _X_
+                            || (item9.getText().toString().isEmpty() && quantity9.getText().toString().isEmpty()  && !unit9.getText().toString().isEmpty())){ //__X
+                        Toast.makeText(NewDishActivity.this, "Item 9 name can't be left empty!", Toast.LENGTH_LONG).show();
+                        condition = 1;
+                    }
+
+                    else if (item9.getText().toString().isEmpty() && quantity9.getText().toString().isEmpty() && unit9.getText().toString().isEmpty()) { // _ _ _
+                        currentDish.add(item9.getText().toString()); // Add empty string
+                    }
+                    else if ((!item9.getText().toString().isEmpty() && quantity9.getText().toString().isEmpty() && unit9.getText().toString().isEmpty()) // X__
+                            || (!item9.getText().toString().isEmpty() && quantity9.getText().toString().isEmpty() && !unit9.getText().toString().isEmpty()) // X_X
+                            || (!item9.getText().toString().isEmpty() && !quantity9.getText().toString().isEmpty() && unit9.getText().toString().isEmpty())) // XX_
+                    {
+                        condition = 1;
+                        Toast.makeText(NewDishActivity.this, "Quantity 9 or Unit 9 can't be left empty", Toast.LENGTH_LONG).show();
+                    }
+
+                    else if (!item9.getText().toString().isEmpty() && !quantity9.getText().toString().isEmpty() && !quantity9.getText().toString().isEmpty()){
+                        currentDish.add(item9.getText().toString() + " " + quantity9.getText().toString() + " " + unit9.getText().toString());
+                    }
+
+                    // Index 10
+                    if((item10.getText().toString().isEmpty() && !quantity10.getText().toString().isEmpty() && !unit10.getText().toString().isEmpty()) // _XX
+                            || (item10.getText().toString().isEmpty() && !quantity10.getText().toString().isEmpty() && unit10.getText().toString().isEmpty()) // _X_
+                            || (item10.getText().toString().isEmpty() && quantity10.getText().toString().isEmpty()  && !unit10.getText().toString().isEmpty())){ //__X
+                        Toast.makeText(NewDishActivity.this, "Item 10 name can't be left empty!", Toast.LENGTH_LONG).show();
+                        condition = 1;
+                    }
+
+                    else if (item10.getText().toString().isEmpty() && quantity10.getText().toString().isEmpty() && unit10.getText().toString().isEmpty()) { // _ _ _
+                        currentDish.add(item10.getText().toString()); // Add empty string
+                    }
+                    else if ((!item10.getText().toString().isEmpty() && quantity10.getText().toString().isEmpty() && unit10.getText().toString().isEmpty()) // X__
+                            || (!item10.getText().toString().isEmpty() && quantity10.getText().toString().isEmpty() && !unit10.getText().toString().isEmpty()) // X_X
+                            || (!item10.getText().toString().isEmpty() && !quantity10.getText().toString().isEmpty() && unit10.getText().toString().isEmpty())) // XX_
+                    {
+                        condition = 1;
+                        Toast.makeText(NewDishActivity.this, "Quantity 10 or Unit 10 can't be left empty", Toast.LENGTH_LONG).show();
+                    }
+
+                    else if (!item10.getText().toString().isEmpty() && !quantity10.getText().toString().isEmpty() && !quantity10.getText().toString().isEmpty()){
+                        currentDish.add(item10.getText().toString() + " " + quantity10.getText().toString() + " " + unit10.getText().toString());
+                    }
+
+                    /*
                     currentDish.add(item2.getText().toString()); // index = 2
                     currentDish.add(item3.getText().toString()); // index = 3
                     currentDish.add(item4.getText().toString()); // index = 4
@@ -424,35 +704,42 @@ public class NewDishActivity extends AppCompatActivity {
                     currentDish.add(item8.getText().toString()); // index = 8
                     currentDish.add(item9.getText().toString()); // index = 9
                     currentDish.add(item10.getText().toString());// index = 10
-                    currentDish.add(descriptionText.getText().toString()); // index = 11
-                    currentDish.add(recipeName.getText().toString() + "bitmapName"); // index = 12
 
-                    for(int i = 0; i < allDishes.size(); i++){
-                        if(allDishes.get(i).get(0).toLowerCase().equals(currentDish.get(0).toLowerCase())){
-                            counter = i;
-                            System.out.println("Duplicated Dish");
+                    */
+
+                    // Everything is fine, condition is 0
+                    if(condition == 0){
+                        currentDish.add(descriptionText.getText().toString()); // index = 11 Description
+                        currentDish.add(recipeName.getText().toString() + "bitmapName"); // index = 12 Bitmap
+
+                        for (int i = 0; i < allDishes.size(); i++) {
+                            if (allDishes.get(i).get(0).toLowerCase().equals(currentDish.get(0).toLowerCase())) {
+                                counter = i;
+                                System.out.println("Duplicated Dish");
+                            } else {
+
+                            }
                         }
-                        else{
 
+                        // Replace in allDish arraylist
+                        if (counter != 0) {
+                            allDishes.set(counter, currentDish);
+                        } else {
+                            // No dup, add to the arrayList
+                            System.out.println("No Duplicated, add new dish");
+                            allDishes.add(currentDish);
                         }
-                    }
-
-                    // Replace in allDish arraylist
-                    if(counter != 0){
-                        allDishes.set(counter, currentDish);
+                        // Save to file
+                        saveDishList(allDishes); // save arrayList
+                        //saveBitMap(imageView); // save bitmap object
+                        Intent welcomeScreen = new Intent(NewDishActivity.this, Welcome.class);
+                        startActivity(welcomeScreen);
                     }
                     else{
-                        // No dup, add to the arrayList
-                        System.out.println("No Duplicated, add new dish");
-                        allDishes.add(currentDish);
-                    }
 
-                    // Save to file
-                    saveDishList(allDishes); // save arrayList
-                    saveBitMap(imageView); // save bitmap object
-                    Intent welcomeScreen = new Intent(NewDishActivity.this, Welcome.class);
-                    startActivity(welcomeScreen);
+                    }
                 }
+
             }
         });
     }

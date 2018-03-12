@@ -177,7 +177,7 @@
 
                     <AutoCompleteTextView
                         android:id="@+id/item5"
-                        android:layout_width="match_parent"
+                        android:layout_width="220dp"
                         android:layout_height="wrap_content"
                         android:hint="Item 5"
                         android:singleLine="true" />
@@ -191,7 +191,7 @@
                         android:singleLine="true" />
                     <EditText
                         android:id="@+id/unit5"
-                        android:layout_width="match_parent"
+                        android:layout_width="220dp"
                         android:layout_height="wrap_content"
                         android:hint="Unit"
                         android:singleLine="true"/>
@@ -205,7 +205,7 @@
 
                     <AutoCompleteTextView
                         android:id="@+id/item6"
-                        android:layout_width="match_parent"
+                        android:layout_width="220dp"
                         android:layout_height="wrap_content"
                         android:hint="Item 6"
                         android:singleLine="true" />
@@ -234,7 +234,7 @@
 
                     <AutoCompleteTextView
                         android:id="@+id/item7"
-                        android:layout_width="match_parent"
+                        android:layout_width="220dp"
                         android:layout_height="wrap_content"
                         android:hint="Item 7"
                         android:singleLine="true" />
@@ -263,7 +263,7 @@
 
                     <AutoCompleteTextView
                         android:id="@+id/item8"
-                        android:layout_width="match_parent"
+                        android:layout_width="220dp"
                         android:layout_height="wrap_content"
                         android:hint="Item 8"
                         android:singleLine="true" />
@@ -292,7 +292,7 @@
 
                     <AutoCompleteTextView
                         android:id="@+id/item9"
-                        android:layout_width="match_parent"
+                        android:layout_width="220dp"
                         android:layout_height="wrap_content"
                         android:hint="Item 9"
                         android:singleLine="true" />
@@ -321,7 +321,7 @@
 
                     <AutoCompleteTextView
                         android:id="@+id/item10"
-                        android:layout_width="match_parent"
+                        android:layout_width="220dp"
                         android:layout_height="wrap_content"
                         android:hint="Item 10"
                         android:singleLine="true" />
