@@ -731,7 +731,7 @@ public class NewDishActivity extends AppCompatActivity {
                         }
                         // Save to file
                         saveDishList(allDishes); // save arrayList
-                        //saveBitMap(imageView); // save bitmap object
+                        saveBitMap(imageView); // save bitmap object
                         Intent welcomeScreen = new Intent(NewDishActivity.this, Welcome.class);
                         startActivity(welcomeScreen);
                     }

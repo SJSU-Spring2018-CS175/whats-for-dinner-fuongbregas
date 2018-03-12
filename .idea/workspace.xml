@@ -22,7 +22,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.lock" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/edu/sjsu/fuong/whatsfordinner/NewDishActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/edu/sjsu/fuong/whatsfordinner/NewDishActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_new_dish.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_new_dish.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -135,8 +134,8 @@
       <file leaf-file-name="NewDishActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/sjsu/fuong/whatsfordinner/NewDishActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="338">
-              <caret line="733" column="26" lean-forward="false" selection-start-line="733" selection-start-column="26" selection-end-line="733" selection-end-column="26" />
+            <state relative-caret-position="-1919">
+              <caret line="733" column="24" lean-forward="false" selection-start-line="733" selection-start-column="24" selection-end-line="733" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#onActivityResult#0;class#NewDishActivity#0" expanded="false" />
@@ -182,8 +181,8 @@
                 <element signature="e#16035#16036#0" expanded="true" />
                 <element signature="e#16080#16841#0" expanded="true" />
                 <element signature="e#16840#16841#0" expanded="true" />
-                <element signature="e#16887#39688#0" expanded="true" />
-                <element signature="e#39687#39688#0" expanded="true" />
+                <element signature="e#16887#39686#0" expanded="true" />
+                <element signature="e#39685#39686#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -2203,7 +2202,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1520813401206" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1520814344363" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -2251,7 +2250,7 @@
       </Profilers>
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1520813401206" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1520814344363" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -2434,7 +2433,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1520813401207" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1520814344364" />
       </method>
     </configuration>
     <list size="1">
@@ -2496,7 +2495,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3325868" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25643897" sideWeight="0.8827078" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.111982085" sideWeight="0.8827078" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.769774" sideWeight="0.117292225" order="12" side_tool="true" content_ui="tabs" />
@@ -2657,8 +2656,8 @@
             <element signature="e#16035#16036#0" expanded="true" />
             <element signature="e#16080#16841#0" expanded="true" />
             <element signature="e#16840#16841#0" expanded="true" />
-            <element signature="e#16887#39688#0" expanded="true" />
-            <element signature="e#39687#39688#0" expanded="true" />
+            <element signature="e#16887#39686#0" expanded="true" />
+            <element signature="e#39685#39686#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -3015,8 +3014,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/sjsu/fuong/whatsfordinner/NewDishActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="733" column="26" lean-forward="false" selection-start-line="733" selection-start-column="26" selection-end-line="733" selection-end-column="26" />
+        <state relative-caret-position="-1919">
+          <caret line="733" column="24" lean-forward="false" selection-start-line="733" selection-start-column="24" selection-end-line="733" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#onActivityResult#0;class#NewDishActivity#0" expanded="false" />
@@ -3062,8 +3061,8 @@
             <element signature="e#16035#16036#0" expanded="true" />
             <element signature="e#16080#16841#0" expanded="true" />
             <element signature="e#16840#16841#0" expanded="true" />
-            <element signature="e#16887#39688#0" expanded="true" />
-            <element signature="e#39687#39688#0" expanded="true" />
+            <element signature="e#16887#39686#0" expanded="true" />
+            <element signature="e#39685#39686#0" expanded="true" />
           </folding>
         </state>
       </provider>
