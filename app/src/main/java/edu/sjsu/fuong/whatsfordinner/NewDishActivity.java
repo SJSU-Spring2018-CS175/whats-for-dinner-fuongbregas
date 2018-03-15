@@ -743,6 +743,7 @@ public class NewDishActivity extends AppCompatActivity {
                         saveBitMap(imageView, currentDish.get(12)); // save bitmap object
                         Intent welcomeScreen = new Intent(NewDishActivity.this, Welcome.class);
                         startActivity(welcomeScreen);
+                        finish();
                     }
                     else{
 
