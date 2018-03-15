@@ -1,9 +1,12 @@
 package edu.sjsu.fuong.whatsfordinner;
 
+import android.app.Activity;
 import android.app.Fragment;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 //import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -21,6 +24,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 
 public class LandscapeFrag extends Fragment {
@@ -35,22 +39,32 @@ public class LandscapeFrag extends Fragment {
     private TextView descriptionDetails;
     private ImageView imageView;
 
+    Context context;
+
     public LandscapeFrag() {
         // Required empty public constructor
     }
 
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        context = activity;
+    }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(LayoutInflater inflater, final ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_landscape, container, false);
         view.setBackgroundColor(Color.WHITE);
+        setRetainInstance(true);
 
         //int length;
 
         Intent intent = getActivity().getIntent();
         Bundle args = intent.getExtras();
+
+        //context = new RecipeActivity();
 
         if(args == null){
 
@@ -79,6 +93,7 @@ public class LandscapeFrag extends Fragment {
         //ArrayAdapter landscapeAdapter = new ArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, dishNames);
         //System.out.println("Adapter Length Land" + landscapeAdapter.getCount());
         dishesList.setAdapter(landscapeAdapter);
+
 
         dishesList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -116,6 +131,7 @@ public class LandscapeFrag extends Fragment {
                 ingredientsDetails.setText(ingredientsOfDish);
 
                 // Display picture of the dish
+                //if()
                 Bitmap currentDishBitmap = getSavedBitmap(currentDish.get(12));
                 imageView.setImageBitmap(currentDishBitmap);
 
@@ -129,17 +145,22 @@ public class LandscapeFrag extends Fragment {
 
     private Bitmap getSavedBitmap(String bitmapName) {
         Bitmap savedBitmap = null;
+        SerializableBitmap serializableBitmap = null;
 
         try {
-            FileInputStream inputStream = getActivity().openFileInput(bitmapName);
+            FileInputStream inputStream = getActivity().openFileInput("savedHashMap");
             ObjectInputStream in = new ObjectInputStream(inputStream);
-            savedBitmap = (Bitmap) in.readObject();
+            HashMap<String, SerializableBitmap> savedHashMap = (HashMap<String, SerializableBitmap>) in.readObject();
+            serializableBitmap = savedHashMap.get(bitmapName);
+            savedBitmap = serializableBitmap.getBitmap();
             in.close();
             inputStream.close();
 
         }
         catch (FileNotFoundException fnf){
             System.out.println("Picture Not Found!");
+            BitmapDrawable drawable = (BitmapDrawable) imageView.getDrawable();
+            savedBitmap = drawable.getBitmap();
         }
         catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
@@ -147,5 +168,7 @@ public class LandscapeFrag extends Fragment {
 
         return savedBitmap;
     }
+
+
 
 }

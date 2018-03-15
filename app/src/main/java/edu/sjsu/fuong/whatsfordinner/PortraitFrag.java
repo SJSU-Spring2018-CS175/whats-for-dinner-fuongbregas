@@ -14,9 +14,15 @@ import android.widget.ListView;
 import android.app.FragmentTransaction;
 import android.widget.Toast;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
-
+import java.util.HashMap;
 
 
 public class PortraitFrag extends Fragment  {
@@ -24,7 +30,12 @@ public class PortraitFrag extends Fragment  {
     private ListView listViewPortrait;
 
     public ArrayList<ArrayList<String>> allDishes;
-    public ArrayList<String> dishNames;
+    public ArrayList<String> dishNames; // Use to display the ListView
+    // public ArrayList<String> currentDish; // Selected Dish
+
+    public HashMap<String, Integer> mealDish;
+    public Integer dishQuantity = 0;
+    public String currentDishName;
 
     // For Meal Activity
 
@@ -39,6 +50,7 @@ public class PortraitFrag extends Fragment  {
                              Bundle savedInstanceState) {
         Bundle args = getArguments();
         dishNames = new ArrayList<>();
+        setRetainInstance(true);
 
         if(args == null){
             //Toast.makeText(PortraitFrag.this.getActivity(), "Args is Empty", Toast.LENGTH_LONG).show();
@@ -53,7 +65,7 @@ public class PortraitFrag extends Fragment  {
                 dishNames.add(allDishes.get(i).get(0));
             }
             System.out.println("Length of dishNames " + dishNames.size());
-            System.out.println("dishNames Item port: " + dishNames.get(1));
+            //System.out.println("dishNames Item port: " + dishNames.get(1));
 
         }
 
@@ -68,16 +80,74 @@ public class PortraitFrag extends Fragment  {
         listViewPortrait.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                mealDish = getmealDish();
+                currentDishName = (String) adapterView.getItemAtPosition(i);
+                if(mealDish.get(currentDishName) == null){
+                    dishQuantity = dishQuantity + 1;
+                }
+                else{
+                    dishQuantity = mealDish.get(currentDishName) + 1;
+                }
 
+                System.out.println("currentDishName value: " + currentDishName);
+                System.out.println("dishQuantity value: " + dishQuantity);
+                // If Dish is not in hashMap, add or replace
+                mealDish.put(currentDishName, dishQuantity);
+                saveMealDish(mealDish);
+            }
+        });
+
+        listViewPortrait.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+
+            @Override
+            public void onFocusChange(View view, boolean hasFocus) {
+                if(!hasFocus){
+                    System.out.println("currentDishName value: " + currentDishName);
+                    System.out.println("dishQuantity value: " + dishQuantity);
+
+                    currentDishName = "";
+                    dishQuantity = 0;
+                }
+                else{
+                    System.out.println("Still Focusing");
+                }
             }
         });
 
         return view;
     }
 
+    private void saveMealDish(HashMap<String, Integer> mealDish) {
+        try {
+            FileOutputStream fileOutputStream = getActivity().openFileOutput("mealDishHashMap", Context.MODE_PRIVATE);
+            ObjectOutputStream out = new ObjectOutputStream(fileOutputStream);
+            out.writeObject(mealDish);
+            out.close();
+            fileOutputStream.close();
 
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
+    private HashMap<String, Integer> getmealDish() {
+        HashMap<String, Integer> savedmealDish = null;
 
+        try {
+            FileInputStream inputStream = getActivity().openFileInput("mealDishHashMap");
+            ObjectInputStream in = new ObjectInputStream(inputStream);
+            savedmealDish = (HashMap<String, Integer>) in.readObject();
+            in.close();
+            inputStream.close();
 
+        }
+        catch (FileNotFoundException fnf){
+            savedmealDish = new HashMap<>();
+        }
+        catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
 
+        return savedmealDish;
+    }
 }

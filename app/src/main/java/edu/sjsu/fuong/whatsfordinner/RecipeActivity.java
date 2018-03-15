@@ -2,6 +2,7 @@ package edu.sjsu.fuong.whatsfordinner;
 
 import android.app.FragmentTransaction;
 import android.content.res.Configuration;
+import android.graphics.Bitmap;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -12,18 +13,21 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class RecipeActivity extends AppCompatActivity implements Serializable {
 
     public ArrayList<ArrayList<String>> allDishes;
-
+    private Bitmap testBitmap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recipe);
 
+
         allDishes = getDishes();
+        //testBitmap = getSavedBitmap(allDishes.get(0).get(12));
 
         Bundle bundle = new Bundle();
 
@@ -41,14 +45,14 @@ public class RecipeActivity extends AppCompatActivity implements Serializable {
         if(configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
             LandscapeFrag landscapeFragment = new LandscapeFrag();
             //landscapeFragment.setArguments(bundle);
-            fragmentTransaction.replace(android.R.id.content, landscapeFragment);
+            fragmentTransaction.add(android.R.id.content, landscapeFragment);
             fragmentTransaction.commit();
         }
 
         if(configuration.orientation == Configuration.ORIENTATION_PORTRAIT){
             PortraitFrag portraitFragment = new PortraitFrag();
             portraitFragment.setArguments(bundle);
-            fragmentTransaction.replace(android.R.id.content, portraitFragment);
+            fragmentTransaction.add(android.R.id.content, portraitFragment);
             fragmentTransaction.commit();
         }
     }
@@ -73,4 +77,6 @@ public class RecipeActivity extends AppCompatActivity implements Serializable {
 
         return savedDishedArrayList;
     }
+
+
 }

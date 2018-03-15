@@ -24,6 +24,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class NewDishActivity extends AppCompatActivity {
 
@@ -776,9 +777,14 @@ public class NewDishActivity extends AppCompatActivity {
             BitmapDrawable drawable = (BitmapDrawable) imageView.getDrawable();
             Bitmap bitmap = drawable.getBitmap();
 
-            FileOutputStream  fileOutputStream  = openFileOutput(name,Context.MODE_PRIVATE);
+            SerializableBitmap serializableBitmap = new SerializableBitmap(bitmap);
+
+            HashMap<String, SerializableBitmap> savedHashMap = new HashMap<>();
+            savedHashMap.put(name, serializableBitmap);
+
+            FileOutputStream  fileOutputStream  = openFileOutput("savedHashMap",Context.MODE_PRIVATE);
             ObjectOutputStream out = new ObjectOutputStream(fileOutputStream);
-            out.writeObject(bitmap);
+            out.writeObject(savedHashMap);
             out.close();
             fileOutputStream.close();
         }
