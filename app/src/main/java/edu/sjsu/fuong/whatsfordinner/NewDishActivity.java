@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
@@ -74,6 +75,8 @@ public class NewDishActivity extends AppCompatActivity {
     public ArrayList<ArrayList<String>> allDishes;
     public ArrayList<ArrayList<String>> testLenght;
 
+    HashMap<String, SerializableBitmap> savedHashMap;
+
     public ArrayAdapter<String> ingredientAdapter;
 
     // Image from device
@@ -86,7 +89,7 @@ public class NewDishActivity extends AppCompatActivity {
 
             try{
                 Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
-                imageView = (ImageView) findViewById(R.id.imageView);
+
                 imageView.setImageBitmap(bitmap);
 
             } catch (FileNotFoundException e) {
@@ -106,6 +109,10 @@ public class NewDishActivity extends AppCompatActivity {
         recipeName = (EditText) findViewById(R.id.recipeName);
         submitButton = (Button) findViewById(R.id.submitButt);
         addPicture = (ImageButton) findViewById(R.id.addPicture);
+        imageView = (ImageView) findViewById(R.id.imageView);
+        Drawable id = getResources().getDrawable(R.drawable.burger);
+        imageView.setImageDrawable(id);
+
 
         // Dish Name
         item1 = (AutoCompleteTextView) findViewById(R.id.item1);
@@ -779,7 +786,8 @@ public class NewDishActivity extends AppCompatActivity {
 
             SerializableBitmap serializableBitmap = new SerializableBitmap(bitmap);
 
-            HashMap<String, SerializableBitmap> savedHashMap = new HashMap<>();
+            savedHashMap = getSavedHashMap("savedHashMap");
+
             savedHashMap.put(name, serializableBitmap);
 
             FileOutputStream  fileOutputStream  = openFileOutput("savedHashMap",Context.MODE_PRIVATE);
@@ -791,6 +799,27 @@ public class NewDishActivity extends AppCompatActivity {
         catch (IOException e){
             e.printStackTrace();
         }
+    }
+
+    private HashMap<String, SerializableBitmap> getSavedHashMap(String filename) {
+        HashMap<String, SerializableBitmap> savedHashMap = null;
+
+        try {
+            FileInputStream inputStream = openFileInput(filename);
+            ObjectInputStream in = new ObjectInputStream(inputStream);
+            savedHashMap = (HashMap<String, SerializableBitmap>) in.readObject();
+            in.close();
+            inputStream.close();
+
+        }
+        catch (FileNotFoundException fnf){
+            savedHashMap = new HashMap<>();
+        }
+        catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        return savedHashMap;
     }
 
 

@@ -145,7 +145,7 @@ public class LandscapeFrag extends Fragment {
 
     private Bitmap getSavedBitmap(String bitmapName) {
         Bitmap savedBitmap = null;
-        SerializableBitmap serializableBitmap = null;
+        SerializableBitmap serializableBitmap;
 
         try {
             FileInputStream inputStream = getActivity().openFileInput("savedHashMap");
