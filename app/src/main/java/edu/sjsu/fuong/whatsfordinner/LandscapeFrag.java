@@ -31,7 +31,7 @@ public class LandscapeFrag extends Fragment {
 
     public ArrayList<ArrayList<String>> allDishes;
     public ArrayList<String> dishNames;
-    ArrayList<String> currentDish;
+    public ArrayList<String> currentDish;
 
     private ListView dishesList;
     private TextView dishName;
@@ -61,16 +61,16 @@ public class LandscapeFrag extends Fragment {
 
         //int length;
 
-        Intent intent = getActivity().getIntent();
-        Bundle args = intent.getExtras();
+        //Intent intent = getActivity().getIntent();
+        //Bundle args = intent.getExtras();
 
         //context = new RecipeActivity();
 
-        if(args == null){
+        //if(args == null){
 
-        }
-        else{
-            allDishes = (ArrayList<ArrayList<String>>) args.getSerializable("dishList");
+        //}
+        //else{
+            allDishes = getDishes();
             //length = allDishes.size();
             dishNames = new ArrayList<>();
             for(int i = 0; i < allDishes.size(); i++){
@@ -78,7 +78,7 @@ public class LandscapeFrag extends Fragment {
                 System.out.println("dishNames Item land: " + dishNames.get(i));
             }
             System.out.println("Length dishName in land" + dishNames.size());
-        }
+        //}
 
 
         dishName = (TextView) view.findViewById(R.id.dishName);
@@ -198,6 +198,26 @@ public class LandscapeFrag extends Fragment {
         return savedBitmap;
     }
 
+    private ArrayList<ArrayList<String>> getDishes() {
+        ArrayList<ArrayList<String>> savedDishedArrayList = null;
+
+        try {
+            FileInputStream inputStream = getActivity().openFileInput("dishesArrayList");
+            ObjectInputStream in = new ObjectInputStream(inputStream);
+            savedDishedArrayList = (ArrayList<ArrayList<String>>) in.readObject();
+            in.close();
+            inputStream.close();
+
+        }
+        catch (FileNotFoundException e){
+            savedDishedArrayList = new ArrayList<>();
+        }
+        catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        return savedDishedArrayList;
+    }
 
 
 }

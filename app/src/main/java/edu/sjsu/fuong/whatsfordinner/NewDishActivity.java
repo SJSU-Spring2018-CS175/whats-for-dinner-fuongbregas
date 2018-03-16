@@ -726,7 +726,7 @@ public class NewDishActivity extends AppCompatActivity {
                         // Save to file
                         saveDishList(allDishes); // save arrayList
                         saveBitMap(imageView, currentDish.get(12)); // save bitmap object
-                        
+
                         finish();
                     }
                     else{
