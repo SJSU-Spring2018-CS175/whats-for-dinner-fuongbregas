@@ -101,6 +101,7 @@ public class LandscapeFrag extends Fragment {
                 currentDish = new ArrayList<>(); // used to assigned the selected dish from allDishes
                 String dishSelected = (String) adapterView.getItemAtPosition(i); // Compare this string to get the dish from allDished
 
+
                 for(int index = 0; index < allDishes.size(); index ++){
                     if(!dishSelected.equals(allDishes.get(i).get(0))){
                         System.out.println("Not at index " + index);
@@ -111,10 +112,7 @@ public class LandscapeFrag extends Fragment {
                     }
                 }
 
-                // Test
-                for(int index = 0; index < currentDish.size(); index++){
-                    System.out.println("Inside CurrentDish " + index + " " + currentDish.get(index));
-                }
+
 
                 dishName.setText(currentDish.get(0));
                 descriptionDetails.setText(currentDish.get(11));
@@ -138,6 +136,37 @@ public class LandscapeFrag extends Fragment {
             }
         });
 
+        dishesList.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+                currentDish = new ArrayList<>(); // used to assigned the selected dish from allDishes
+                String dishSelected = (String) adapterView.getItemAtPosition(i); // Compare this string to get the dish from allDished
+
+
+                for(int index = 0; index < allDishes.size(); index ++){
+                    if(!dishSelected.equals(allDishes.get(i).get(0))){
+                        System.out.println("Not at index " + index);
+                    }
+                    else{
+                        currentDish = allDishes.get(i);
+                        break;
+                    }
+                }
+
+                if(currentDish  != null){
+                    Intent intent = new Intent(getActivity(), EditDishActivity.class);
+                    Bundle bundle = new Bundle();
+                    bundle.putSerializable("currentDish", currentDish);
+                    intent.putExtras(bundle);
+                    startActivity(intent);
+                    return true;
+                }
+                else{
+                    System.out.println("Can't start Activity");
+                    return false;
+                }
+            }
+        });
 
 
         return view;

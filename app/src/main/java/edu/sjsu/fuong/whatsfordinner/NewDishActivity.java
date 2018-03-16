@@ -73,7 +73,6 @@ public class NewDishActivity extends AppCompatActivity {
     public ArrayList<String> ingredient;
     public ArrayList<String> currentDish;
     public ArrayList<ArrayList<String>> allDishes;
-    public ArrayList<ArrayList<String>> testLenght;
 
     HashMap<String, SerializableBitmap> savedHashMap;
 
@@ -114,7 +113,7 @@ public class NewDishActivity extends AppCompatActivity {
         imageView.setImageDrawable(id);
 
 
-        // Dish Name
+        // Ingredient Name
         item1 = (AutoCompleteTextView) findViewById(R.id.item1);
         item2 = (AutoCompleteTextView) findViewById(R.id.item2);
         item3 = (AutoCompleteTextView) findViewById(R.id.item3);
@@ -152,10 +151,10 @@ public class NewDishActivity extends AppCompatActivity {
 
         descriptionText = (EditText) findViewById(R.id.descriptionText);
 
-        imageView = (ImageView) findViewById(R.id.imageView);
 
-        testLenght = (ArrayList<ArrayList<String>>) getIntent().getSerializableExtra("dishList");
-        System.out.println("Length of allDishes " + testLenght.size());
+
+        //testLenght = (ArrayList<ArrayList<String>>) getIntent().getSerializableExtra("dishList");
+        //System.out.println("Length of allDishes " + testLenght.size());
         //ingredient = (ArrayList<String>) getIntent().getSerializableExtra("ingredientList");
 
         // allDishes array list
@@ -167,8 +166,6 @@ public class NewDishActivity extends AppCompatActivity {
 
         // make dropdown with AutoCompleteTextView
         ingredientAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line,ingredient);
-        item1.setAdapter(ingredientAdapter);
-        item2.setAdapter(ingredientAdapter);
 
         item1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -703,18 +700,6 @@ public class NewDishActivity extends AppCompatActivity {
                         currentDish.add(item10.getText().toString() + " " + quantity10.getText().toString() + " " + unit10.getText().toString());
                     }
 
-                    /*
-                    currentDish.add(item2.getText().toString()); // index = 2
-                    currentDish.add(item3.getText().toString()); // index = 3
-                    currentDish.add(item4.getText().toString()); // index = 4
-                    currentDish.add(item5.getText().toString()); // index = 5
-                    currentDish.add(item6.getText().toString()); // index = 6
-                    currentDish.add(item7.getText().toString()); // index = 7
-                    currentDish.add(item8.getText().toString()); // index = 8
-                    currentDish.add(item9.getText().toString()); // index = 9
-                    currentDish.add(item10.getText().toString());// index = 10
-
-                    */
 
                     // Everything is fine, condition is 0
                     if(condition == 0){
@@ -741,8 +726,7 @@ public class NewDishActivity extends AppCompatActivity {
                         // Save to file
                         saveDishList(allDishes); // save arrayList
                         saveBitMap(imageView, currentDish.get(12)); // save bitmap object
-                        Intent welcomeScreen = new Intent(NewDishActivity.this, Welcome.class);
-                        startActivity(welcomeScreen);
+                        
                         finish();
                     }
                     else{
