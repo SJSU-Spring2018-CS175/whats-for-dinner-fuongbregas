@@ -45,14 +45,14 @@ public class RecipeActivity extends AppCompatActivity implements Serializable {
         if(configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
             LandscapeFrag landscapeFragment = new LandscapeFrag();
             //landscapeFragment.setArguments(bundle);
-            fragmentTransaction.add(android.R.id.content, landscapeFragment);
+            fragmentTransaction.replace(android.R.id.content, landscapeFragment);
             fragmentTransaction.commit();
         }
 
         if(configuration.orientation == Configuration.ORIENTATION_PORTRAIT){
             PortraitFrag portraitFragment = new PortraitFrag();
             portraitFragment.setArguments(bundle);
-            fragmentTransaction.add(android.R.id.content, portraitFragment);
+            fragmentTransaction.replace(android.R.id.content, portraitFragment);
             fragmentTransaction.commit();
         }
     }
