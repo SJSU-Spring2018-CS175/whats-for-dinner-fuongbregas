@@ -11,40 +11,34 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="8dp">
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="116dp">
 
         <Spinner
             android:id="@+id/spinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="441dp">
+        <LinearLayout
+            android:layout_width="408dp"
+            android:layout_height="421dp"
+            android:orientation="vertical">
 
-            <LinearLayout
+            <com.baoyz.swipemenulistview.SwipeMenuListView
+                android:id="@+id/listView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <com.baoyz.swipemenulistview.SwipeMenuListView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/listView">
+            </com.baoyz.swipemenulistview.SwipeMenuListView>
 
-                </com.baoyz.swipemenulistview.SwipeMenuListView>
-
-            </LinearLayout>
+        </LinearLayout>
 
 
-
-
-        </ScrollView>
         <Button
-            android:id="@+id/doneButton"
+            android:id="@+id/saveButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Done" />
+            android:text="Save ingredients for this dish" />
 
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
