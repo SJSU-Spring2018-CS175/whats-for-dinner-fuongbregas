@@ -1,0 +1,57 @@
+Youtube DEMO Link: https://youtu.be/1hRcX6hHRHc
+
+1) The Main Screen:
+- It consists of a banner image at the top and four menu items for New Dish, Recipes, Groceries and Meals. (5 points) DONE
+- Each menu item is made of an icon image with label. When a user clicks on menu item, it will take the user to the corresponding screen. (2 points) DONE
+- When the user clicks on the banner image, a pop-up window with the app information, such as author’s name, software version number,
+URL link for help, copyright information, will be shown. (3 points) DONE
+
+Full points: 10
+
+2) The New Dish Screen:
+- Use a EditText element for the recipe’s name. (1 point) DONE
+- There must be a hint in the element to prompt the user to enter the recipe’s name. (1 point) DONE
+- When the element is out of focus (when the user clicks on other element or click on the submit button), the input must be checked against all other recipes in the app to prevent multiple entry of recipes with the same name. (2 points) DONE FIXED
+- For the recipe’s image, end-user can click on the add image button (+) to choose an image from local file or provide URL link for an
+image on Internet. (1 point) 1/2 DONE - Only provides image from device 
+- The user has an option not to input any image and you must provide a default image for all recipes without provided image. (1 point) DONE
+- The user is allowed to input one to ten items for the recipe’s ingredients. Each existed item (previously entered by the user) is available in a pull-down menu so the user can quickly select one. (3 points) DONE
+- There is no restriction for directions except that you want to limit the length of cooking direction to 250 characters. (This is for
+grading purpose only. In your real app, you can increase the limit to a larger number.) (1 point) DONE
+
+Points: 9.5
+
+3) The Recipes Screen:
+- You must handle the portrait and landscape modes for Recipes screen using fragments. (2 points) DONE
+- When the Recipes screen is in portrait mode, it gives the user a quick summary of all available recipes in the app. (1 point) DONE
+- If the user clicks on an item, the item will be available for meal planning (in the Meals screen). An item can be selected more than once. (2 point) DONE
+- When the device is held in the landscape mode, the recipes screen consists of both the summary list and the description of currently selected recipe. The description should show the recipe’s name, image, ingredients, and cooking directions. (2 points) DONE
+- If the user long presses the recipe item in either portrait and landscape mode, it will take the user to the editing mode for a recipe. The editing screen is similar to the New Dish screen but it prefills all fields with the existing data. (3 points) DONE
+
+Points: 10
+
+4) The Groceries Screen
+- This screen is a List View element that lists all required ingredients selected from the Recipes screen. (1 point) DONE
+- There shall be no duplicated entry of the same item. Instead, multiple items of the same kind should be counted, e.g., Tomatoes (2 pieces). (2 points) DONE? I did not understan this part, so I seperated as dishes.
+- The unit for each item should be used in a correct way. For example, use “pieces” for tomatoes, “pounds” for chicken breast, etc. (2 points) DONE
+- If the user swipes an item to the left, a small menu with (+) and (-) buttons will be appeared. Each time the user clicks on the (-)
+button, the count of an item will be decreased by one. The count will be increased by one if the (+) button is clicked. (2 points) DONE
+- When the count reaches zero, the item will be crossed-out, like this. (1 point) NOT DONE
+- If the user swipes the item to the right, the small menu will be disappeared. (1 point) DONE
+- The list view element has a vertical scrollbar. If the list grows too long, the user is able to scroll up and down with finger gesture. (1 point) DONE
+
+Points: 9 or 7
+
+5) The Meal Screen
+- Allow the user to choose from a list of available meals (some items may have more than one count) and assign it to
+each day in a week. (4 points) DONE
+- There are three meals for each day: breakfast, lunch and dinner. (2 points) DONE
+- If one meal slot is not assigned, it should show “eating out” to indicate that. (2 points) DONE
+- After each assignment, the used meal will be deducted from the list of available meals. (2 points) DONE
+
+Points: 10
+
+6) NO EXTRA CREDITS
+
+Total: 48.5 or 46.5
+ 
