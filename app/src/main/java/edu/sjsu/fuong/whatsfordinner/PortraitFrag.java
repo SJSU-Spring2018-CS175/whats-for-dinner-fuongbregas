@@ -1,6 +1,7 @@
 package edu.sjsu.fuong.whatsfordinner;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
@@ -32,7 +33,7 @@ public class PortraitFrag extends Fragment  {
 
     public ArrayList<ArrayList<String>> allDishes;
     public ArrayList<String> dishNames; // Use to display the ListView
-    // public ArrayList<String> currentDish; // Selected Dish
+    public ArrayList<String> currentDish; // Selected Dish
 
     public HashMap<String, Integer> mealDish;
     public Integer dishQuantity = 0;
@@ -113,6 +114,39 @@ public class PortraitFrag extends Fragment  {
                 }
                 else{
                     System.out.println("Still Focusing");
+                }
+            }
+        });
+
+        listViewPortrait.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                currentDish = new ArrayList<>(); // used to assigned the selected dish from allDishes
+                String dishSelected = (String) adapterView.getItemAtPosition(i); // Compare this string to get the dish from allDished
+
+
+                for(int index = 0; index < allDishes.size(); index ++){
+                    if(!dishSelected.equals(allDishes.get(i).get(0))){
+                        System.out.println("Not at index " + index);
+                    }
+                    else{
+                        currentDish = allDishes.get(i);
+                        break;
+                    }
+                }
+
+                if(currentDish  != null){
+                    Intent intent = new Intent(getActivity(), EditDishActivity.class);
+                    Bundle bundle = new Bundle();
+                    bundle.putSerializable("currentDish", currentDish);
+                    intent.putExtras(bundle);
+                    startActivity(intent);
+                    return true;
+                }
+                else{
+                    System.out.println("Can't start Activity");
+                    return false;
                 }
             }
         });

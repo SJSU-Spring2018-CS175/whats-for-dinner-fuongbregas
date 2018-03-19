@@ -88,6 +88,7 @@ public class GroceryActivity extends AppCompatActivity {
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(dataAdapter);
 
+
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(final AdapterView<?> adapterView, View view, int id, long l) {
@@ -231,6 +232,9 @@ public class GroceryActivity extends AppCompatActivity {
             }
         });
 
+        if(dataAdapter.getCount() > 0){
+            saveButton.setEnabled(true);
+        }
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -245,10 +249,7 @@ public class GroceryActivity extends AppCompatActivity {
                     System.out.println("dishInGro " + dishInGro.get(i));
                 }
                 int index = getIndex(dishInGro, dishName);
-                System.out.println("Is equals " + dishName.equals(dishInGro.get(0)));
-                System.out.println("Length of DishName " + dishName.length());
-                System.out.println("Length of Gro " + dishInGro.get(0).length());
-                System.out.println("Length of Gro 1 " + dishInGro.get(1).length());
+
                 System.out.println("Index " + index);
 
                 newDish.add(dishName);
