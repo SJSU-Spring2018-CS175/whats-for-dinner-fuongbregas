@@ -73,6 +73,7 @@ public class NewDishActivity extends AppCompatActivity {
     public ArrayList<String> ingredient;
     public ArrayList<String> currentDish;
     public ArrayList<ArrayList<String>> allDishes;
+    public ArrayList<String> dishName;
 
     HashMap<String, SerializableBitmap> savedHashMap;
 
@@ -104,7 +105,7 @@ public class NewDishActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_dish);
-
+        dishName = new ArrayList<>();
         recipeName = (EditText) findViewById(R.id.recipeName);
         submitButton = (Button) findViewById(R.id.submitButt);
         addPicture = (ImageButton) findViewById(R.id.addPicture);
@@ -160,6 +161,10 @@ public class NewDishActivity extends AppCompatActivity {
         // allDishes array list
         allDishes = getDishes();
         currentDish = new ArrayList<>();
+
+        for(int k = 0; k < allDishes.size(); k++){
+            dishName.add(allDishes.get(k).get(0));
+        }
 
         // Ingredient arraylist
         ingredient = getIngredient();
@@ -463,9 +468,10 @@ public class NewDishActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                if(recipeName.getText().toString().isEmpty()){
-                    Toast.makeText(NewDishActivity.this, "Recipe's name is empty!",Toast.LENGTH_LONG).show();
+                if(recipeName.getText().toString().isEmpty() || dishName.contains(recipeName.getText().toString())){
+                    Toast.makeText(NewDishActivity.this, "Recipe's name is not legit",Toast.LENGTH_LONG).show();
                 }
+
                 else {
                     int condition = 0;
                     int counter = 0;
@@ -706,23 +712,8 @@ public class NewDishActivity extends AppCompatActivity {
                         currentDish.add(descriptionText.getText().toString()); // index = 11 Description
                         currentDish.add(recipeName.getText().toString() + "bitmapName"); // index = 12 Bitmap
 
-                        for (int i = 0; i < allDishes.size(); i++) {
-                            if (allDishes.get(i).get(0).toLowerCase().equals(currentDish.get(0).toLowerCase())) {
-                                counter = i;
-                                System.out.println("Duplicated Dish");
-                            } else {
+                        allDishes.add(currentDish);
 
-                            }
-                        }
-
-                        // Replace in allDish arraylist
-                        if (counter != 0) {
-                            allDishes.set(counter, currentDish);
-                        } else {
-                            // No dup, add to the arrayList
-                            System.out.println("No Duplicated, add new dish");
-                            allDishes.add(currentDish);
-                        }
                         // Save to file
                         saveDishList(allDishes); // save arrayList
                         saveBitMap(imageView, currentDish.get(12)); // save bitmap object

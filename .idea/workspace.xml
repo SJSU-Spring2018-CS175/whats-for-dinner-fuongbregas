@@ -6,6 +6,7 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="dishNames Item land" />
     <option name="TOOL_WINDOW_LOG_LEVEL" value="verbose" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
     <option name="TOOL_WINDOW_REGEXP_FILTER" value="false" />
@@ -24,11 +25,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.lock" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/edu/sjsu/fuong/whatsfordinner/GroceryActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/edu/sjsu/fuong/whatsfordinner/GroceryActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/edu/sjsu/fuong/whatsfordinner/MealActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/edu/sjsu/fuong/whatsfordinner/MealActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/edu/sjsu/fuong/whatsfordinner/PortraitFrag.java" afterPath="$PROJECT_DIR$/app/src/main/java/edu/sjsu/fuong/whatsfordinner/PortraitFrag.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_grocery.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_grocery.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_meal.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_meal.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/edu/sjsu/fuong/whatsfordinner/NewDishActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/edu/sjsu/fuong/whatsfordinner/NewDishActivity.java" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -52,11 +49,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="NewDishActivity.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="NewDishActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/sjsu/fuong/whatsfordinner/NewDishActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="25">
-              <caret line="29" column="13" lean-forward="false" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
+            <state relative-caret-position="159">
+              <caret line="471" column="84" lean-forward="false" selection-start-line="471" selection-start-column="84" selection-end-line="471" selection-end-column="84" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RecipeActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/sjsu/fuong/whatsfordinner/RecipeActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-31">
+              <caret line="54" column="39" lean-forward="false" selection-start-line="54" selection-start-column="39" selection-end-line="54" selection-end-column="39" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -126,10 +135,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MealActivity.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MealActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/sjsu/fuong/whatsfordinner/MealActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
+            <state relative-caret-position="2460">
               <caret line="572" column="31" lean-forward="false" selection-start-line="572" selection-start-column="31" selection-end-line="572" selection-end-column="31" />
               <folding>
                 <element signature="e#21402#22604#0" expanded="true" />
@@ -142,8 +151,8 @@
       <file leaf-file-name="LandscapeFrag.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/sjsu/fuong/whatsfordinner/LandscapeFrag.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-310">
-              <caret line="143" column="16" lean-forward="false" selection-start-line="143" selection-start-column="16" selection-end-line="168" selection-end-column="17" />
+            <state relative-caret-position="225">
+              <caret line="79" column="55" lean-forward="false" selection-start-line="79" selection-start-column="36" selection-end-line="79" selection-end-column="55" />
               <folding />
             </state>
           </provider>
@@ -157,21 +166,6 @@
               <folding>
                 <element signature="e#4509#5854#0" expanded="true" />
                 <element signature="e#5853#5854#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="activity_new_dish.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_new_dish.xml">
-          <provider editor-type-id="android-designer2">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="197">
-              <caret line="9" column="5" lean-forward="false" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
-              <folding>
-                <marker date="1521435738790" expanded="true" signature="14845:14882" ph="..." />
               </folding>
             </state>
           </provider>
@@ -214,6 +208,7 @@
       <find>dishName Groc</find>
       <find>Adapter</find>
       <find>dishInGro</find>
+      <find>recipe</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -1950,7 +1945,6 @@
         <option value="$PROJECT_DIR$/app/src/main/java/edu/sjsu/fuong/whatsfordinner/BitmapDataObject.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/edu/sjsu/fuong/whatsfordinner/SerializableBitmap.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_edit_dish.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/edu/sjsu/fuong/whatsfordinner/NewDishActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/edu/sjsu/fuong/whatsfordinner/Welcome.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/edu/sjsu/fuong/whatsfordinner/RecipeActivity.java" />
         <option value="$PROJECT_DIR$/app/build.gradle" />
@@ -1962,6 +1956,7 @@
         <option value="$PROJECT_DIR$/app/src/main/java/edu/sjsu/fuong/whatsfordinner/PortraitFrag.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/edu/sjsu/fuong/whatsfordinner/GroceryActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_meal.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/edu/sjsu/fuong/whatsfordinner/NewDishActivity.java" />
       </list>
     </option>
   </component>
@@ -2185,7 +2180,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1521436982739" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1521442610447" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -2233,7 +2228,7 @@
       </Profilers>
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1521436982739" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1521442610447" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -2395,7 +2390,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1521436982740" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1521442610452" />
       </method>
     </configuration>
     <list size="1">
@@ -2845,16 +2840,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/sjsu/fuong/whatsfordinner/RecipeActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="54" column="39" lean-forward="false" selection-start-line="54" selection-start-column="39" selection-end-line="54" selection-end-column="39" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_edit_dish.xml">
       <provider editor-type-id="android-designer2">
         <state />
@@ -2895,47 +2880,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/sjsu/fuong/whatsfordinner/NewDishActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="29" column="13" lean-forward="false" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/sjsu/fuong/whatsfordinner/EditDishActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="533" column="46" lean-forward="false" selection-start-line="533" selection-start-column="33" selection-end-line="533" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_grocery.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="861">
-          <caret line="40" column="34" lean-forward="false" selection-start-line="40" selection-start-column="34" selection-end-line="40" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://B:/AndroidSDK/platforms/android-26/android.jar!/android/provider/MediaStore.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="322">
           <caret line="502" column="0" lean-forward="false" selection-start-line="502" selection-start-column="0" selection-end-line="502" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/sjsu/fuong/whatsfordinner/LandscapeFrag.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-310">
-          <caret line="143" column="16" lean-forward="false" selection-start-line="143" selection-start-column="16" selection-end-line="168" selection-end-column="17" />
           <folding />
         </state>
       </provider>
@@ -2947,17 +2895,6 @@
           <folding>
             <element signature="e#4509#5854#0" expanded="true" />
             <element signature="e#5853#5854#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/sjsu/fuong/whatsfordinner/GroceryActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="49">
-          <caret line="251" column="0" lean-forward="false" selection-start-line="251" selection-start-column="0" selection-end-line="251" selection-end-column="0" />
-          <folding>
-            <element signature="e#10300#11209#0" expanded="true" />
-            <element signature="e#11208#11209#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2975,11 +2912,69 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/sjsu/fuong/whatsfordinner/MealActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
+        <state relative-caret-position="2460">
           <caret line="572" column="31" lean-forward="false" selection-start-line="572" selection-start-column="31" selection-end-line="572" selection-end-column="31" />
           <folding>
             <element signature="e#21402#22604#0" expanded="true" />
             <element signature="e#22603#22604#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/sjsu/fuong/whatsfordinner/RecipeActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-31">
+          <caret line="54" column="39" lean-forward="false" selection-start-line="54" selection-start-column="39" selection-end-line="54" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/sjsu/fuong/whatsfordinner/EditDishActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="533" column="46" lean-forward="false" selection-start-line="533" selection-start-column="33" selection-end-line="533" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/sjsu/fuong/whatsfordinner/GroceryActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="49">
+          <caret line="251" column="0" lean-forward="false" selection-start-line="251" selection-start-column="0" selection-end-line="251" selection-end-column="0" />
+          <folding>
+            <element signature="e#10300#11209#0" expanded="true" />
+            <element signature="e#11208#11209#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_grocery.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="861">
+          <caret line="40" column="34" lean-forward="false" selection-start-line="40" selection-start-column="34" selection-end-line="40" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/sjsu/fuong/whatsfordinner/LandscapeFrag.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="79" column="55" lean-forward="false" selection-start-line="79" selection-start-column="36" selection-end-line="79" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/edu/sjsu/fuong/whatsfordinner/NewDishActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="471" column="84" lean-forward="false" selection-start-line="471" selection-start-column="84" selection-end-line="471" selection-end-column="84" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
