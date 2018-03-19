@@ -11,7 +11,7 @@ Full points: 10
 2) The New Dish Screen:
 - Use a EditText element for the recipe’s name. (1 point) DONE
 - There must be a hint in the element to prompt the user to enter the recipe’s name. (1 point) DONE
-- When the element is out of focus (when the user clicks on other element or click on the submit button), the input must be checked against all other recipes in the app to prevent multiple entry of recipes with the same name. (2 points) DONE - According to the professor, I can either prevent the app from create the dish or replace the old one with the new one, I chose the second way
+- When the element is out of focus (when the user clicks on other element or click on the submit button), the input must be checked against all other recipes in the app to prevent multiple entry of recipes with the same name. (2 points) DONE FIXED
 - For the recipe’s image, end-user can click on the add image button (+) to choose an image from local file or provide URL link for an
 image on Internet. (1 point) 1/2 DONE - Only provides image from device 
 - The user has an option not to input any image and you must provide a default image for all recipes without provided image. (1 point) DONE
