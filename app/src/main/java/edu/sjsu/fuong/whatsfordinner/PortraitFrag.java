@@ -93,6 +93,7 @@ public class PortraitFrag extends Fragment  {
 
                 System.out.println("currentDishName value: " + currentDishName);
                 System.out.println("dishQuantity value: " + dishQuantity);
+                Toast.makeText(getActivity(), currentDishName + " is added " + dishQuantity +" times", Toast.LENGTH_SHORT).show();
                 // If Dish is not in hashMap, add or replace
                 mealDish.put(currentDishName, dishQuantity);
                 saveMealDish(mealDish);
