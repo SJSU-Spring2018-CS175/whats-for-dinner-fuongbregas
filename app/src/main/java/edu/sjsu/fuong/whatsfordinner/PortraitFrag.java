@@ -45,24 +45,14 @@ public class PortraitFrag extends Fragment  {
         // Required empty public constructor
     }
 
-    @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        setRetainInstance(true);
-    }
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setRetainInstance(true);
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         Bundle args = getArguments();
         dishNames = new ArrayList<>();
-        setRetainInstance(true);
+        //setRetainInstance(true);
 
         if(args == null){
             //Toast.makeText(PortraitFrag.this.getActivity(), "Args is Empty", Toast.LENGTH_LONG).show();

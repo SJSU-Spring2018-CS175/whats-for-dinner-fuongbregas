@@ -44,10 +44,11 @@ public class GroceryActivity extends AppCompatActivity {
     private ArrayAdapter<String> dataAdapter;
     private SwipeMenuListView listView;
     private ArrayList<String> spinnerStringList;
-    private ArrayList<String> listViewStringList;
+    private ArrayList<String> ingredientStringList;
     private ArrayAdapter<String> ingredientAdapter;
-    private String dishName = "";
+    private String dishName;
     private Button saveButton;
+    private ArrayList<String> dishInGro;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,7 +59,7 @@ public class GroceryActivity extends AppCompatActivity {
         allDishes = getGroceryDish();
         mealDish = getmealDish();
         spinnerStringList = new ArrayList<>();
-
+        //
         groceryDish       = new ArrayList<>();
 
         // View settings
@@ -93,7 +94,7 @@ public class GroceryActivity extends AppCompatActivity {
 
                 ArrayList<String> adapterString = cutStringToWord(spinner.getItemAtPosition(id).toString());
                 System.out.println(spinner.getItemAtPosition(id).toString());
-
+                dishName = "";
                 for(int j = 2; j < adapterString.size(); j++){
                     dishName += adapterString.get(j) + " ";
                 }
@@ -101,6 +102,7 @@ public class GroceryActivity extends AppCompatActivity {
                 System.out.println("groceryDish size: " + groceryDish.size());
 
                 final ArrayList<String> currentDishIngredients = new ArrayList<>();
+                dishInGro = new ArrayList<>();
 
                 currentDishIngredients.add(groceryDish.get(id).get(1));
                 currentDishIngredients.add(groceryDish.get(id).get(2));
@@ -178,6 +180,8 @@ public class GroceryActivity extends AppCompatActivity {
                                     }
                                     newValue = newValue + qty + " " + cutString.get(cutString.size()-1);
                                     currentDishIngredients.set(position, newValue);
+                                    ingredientStringList = new ArrayList<>();
+                                    ingredientStringList.addAll(currentDishIngredients);
                                     ingredientAdapter.notifyDataSetChanged();
                                     break;
                                 case 1:
@@ -204,6 +208,8 @@ public class GroceryActivity extends AppCompatActivity {
                                     newValue = newValue2 + qty2 + " " + cutString2.get(cutString2.size()-1);
 
                                     currentDishIngredients.set(position, newValue);
+                                    ingredientStringList = new ArrayList<>();
+                                    ingredientStringList.addAll(currentDishIngredients);
                                     ingredientAdapter.notifyDataSetChanged();
                                     break;
                             }
@@ -228,7 +234,28 @@ public class GroceryActivity extends AppCompatActivity {
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                
+                ArrayList<String> newDish = new ArrayList<>();
+                System.out.println("Dish Name " + dishName);
+                dishName = dishName.substring(0, dishName.length()-1);
+
+                for(int i = 0; i < groceryDish.size(); i++){
+                    dishInGro.add(groceryDish.get(i).get(0));
+                }
+                for(int i = 0; i < dishInGro.size(); i++){
+                    System.out.println("dishInGro " + dishInGro.get(i));
+                }
+                int index = getIndex(dishInGro, dishName);
+                System.out.println("Is equals " + dishName.equals(dishInGro.get(0)));
+                System.out.println("Length of DishName " + dishName.length());
+                System.out.println("Length of Gro " + dishInGro.get(0).length());
+                System.out.println("Length of Gro 1 " + dishInGro.get(1).length());
+                System.out.println("Index " + index);
+
+                newDish.add(dishName);
+                newDish.addAll(ingredientStringList);
+
+                groceryDish.set(index,newDish);
+                saveGroceryList(groceryDish);
             }
         });
     }
@@ -237,7 +264,7 @@ public class GroceryActivity extends AppCompatActivity {
         try {
             FileOutputStream fileOutputStream = openFileOutput("groceryDishes", Context.MODE_PRIVATE);
             ObjectOutputStream out = new ObjectOutputStream(fileOutputStream);
-            out.writeObject(allDishes);
+            out.writeObject(groceryDish);
             out.close();
             fileOutputStream.close();
 
@@ -334,5 +361,14 @@ public class GroceryActivity extends AppCompatActivity {
         String[] items = ingredientQuantityUnit.split(" ");
         List list = asList(items);
         return new ArrayList<String>(list);
+    }
+
+    private int getIndex(ArrayList<String> list, String item) {
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i).equals(item)) {
+                return i;
+            }
+        }
+        return -2;
     }
 }

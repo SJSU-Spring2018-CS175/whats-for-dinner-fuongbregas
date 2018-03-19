@@ -51,17 +51,7 @@ public class LandscapeFrag extends Fragment {
         context = activity;
     }
 
-    @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        setRetainInstance(true);
-    }
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setRetainInstance(true);
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, final ViewGroup container,
@@ -69,7 +59,7 @@ public class LandscapeFrag extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_landscape, container, false);
         view.setBackgroundColor(Color.WHITE);
-        setRetainInstance(true);
+        //setRetainInstance(true);
 
         //int length;
 
