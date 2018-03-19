@@ -72,6 +72,7 @@ public class EditDishActivity extends AppCompatActivity {
     private EditText descriptionText;
 
     private ImageView imageView;
+    private ArrayList<String> dishName;
 
     // Dish Data
     public ArrayList<String> ingredient;
@@ -84,6 +85,7 @@ public class EditDishActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_dish);
+        dishName = new ArrayList<>();
 
         // Data
         Bundle bundle = getIntent().getExtras();
@@ -91,14 +93,11 @@ public class EditDishActivity extends AppCompatActivity {
         ingredient = getIngredient();
         allDishes = getDishes();
 
-        if(currentDish!= null){
-            for(int i = 0; i < currentDish.size(); i++){
-                System.out.println(currentDish.get(i));
-            }
+        for(int k = 0; k < allDishes.size(); k++){
+            dishName.add(allDishes.get(k).get(0));
         }
-        else{
-            System.out.println("Error currentDish");
-        }
+
+
 
 
         recipeName = findViewById(R.id.recipeName);
@@ -566,8 +565,8 @@ public class EditDishActivity extends AppCompatActivity {
             public void onClick(View view) {
 
 
-                if(recipeName.getText().toString().isEmpty()){
-                    Toast.makeText(EditDishActivity.this, "Recipe's name is empty!",Toast.LENGTH_LONG).show();
+                if(recipeName.getText().toString().isEmpty() || dishName.contains(recipeName.getText().toString())){
+                    Toast.makeText(EditDishActivity.this, "Recipe's name is not legit!",Toast.LENGTH_LONG).show();
                 }
                 else {
                     // Get the current Index
@@ -823,29 +822,7 @@ public class EditDishActivity extends AppCompatActivity {
                         edittedDish.add(recipeName.getText().toString() + "bitmapName"); // index = 12 Bitmap
                         //allDishes.set(indexOfCurrentDishInallDishes, currentDish);
 
-                        for (int i = 0; i < allDishes.size(); i++) {
-                            if (allDishes.get(i).get(0).toLowerCase().equals(recipeName.getText().toString().toLowerCase())) {
-                                counter = i;
-                                System.out.println("Duplicated Dish");
-                            } else {
-
-                            }
-                        }
-                        //allDishes.set(counter, edittedDish);
-
-                        // Replace in allDish arraylist
-                        System.out.println("Expected 0, Output: " + counter);
-
-                        if (counter < indexOfCurrentDishInallDishes) {
-                            allDishes.set(indexOfCurrentDishInallDishes, edittedDish);
-                            allDishes.remove(counter);
-                        } else if(counter > indexOfCurrentDishInallDishes){
-                            allDishes.set(counter, edittedDish);
-                            allDishes.remove(indexOfCurrentDishInallDishes);
-                        }
-                        else {
-                            allDishes.set(indexOfCurrentDishInallDishes, edittedDish);
-                        }
+                        allDishes.add(edittedDish);
 
 
                         // Save to file
